@@ -1,0 +1,372 @@
+{
+    "songs": [
+        {
+            "id": 1,
+            "title": "TANORANAO",
+            "lyrics": "'Ndreto izahay tanoranao ry Ray\nTsy hisaraka fa ho iray mandrakizay\nHanandratra ny feo, hidera ny Anaranao\nHitory an-kira ireo hafatrao\n\nMba tahionao ry Tompo o\n‘Ty asa fitoriana ataonay\nMba hamokatra amin'ireo zanakao\nIreo teny soa zay ambaranay\n\nNy feo nomenao ho anay ry Ray\nNo entinay hidera ny Anaranao\nKana sarotra aza ny lalana‘zay hizoranay\nDia matoky fa eo ianao mpiaro anay\n\nMba tahionao ry Tompo o\n‘Ty asa fitoriana ataonay\nMba hamokatra amin'ireo zanakao\nIreo teny soa zay ambaranay",
+            "author": "Rindra Léon ",
+            "year": 2021,
+            "category": "SudAf"
+        },
+        {
+            "id": 2,
+            "title": "VAVAKA",
+            "lyrics": "Omeo hery agnay Tompo ò!\nTsa hiverin-dalagna amin’ity fanompoana Anao\nFa hifikitra hatrany\nHankalaza ny agnaranao amin’ny androm-piainanay\n\nOlombelogna anefa agnay\nKa tsy hahavita nysitrakao\nRaha tsy tonga ao agnatinay ny Fagnahinao\n\nReo namanay rehetra sy ‘reo havanay izay tsy mino ny fisianao\nTsilovy hatrany hatrany agniraho ny fagnahy masignao\nMba hahatsiaro Anao\n\nOlombelogna anefa agnay\nKa tsy hahavita nysitrakao\nRaha tsy tonga ao agnatinay ny Fagnahinao\n\nNy fahavalonay rehetra tantano fa sao mivarina\nAmin’ny famonoana anay fa tsy maintsy ho sasatra izy\nKa hitodi-doha ho agny aminao amin’ny farany\n\nOlombelogna anefa agnay\nKa tsy hahavita nysitrakao\nRaha tsy tonga ao agnatinay ny Fagnahinao",
+            "author": "Isidore",
+            "year": 2014,
+            "category": "Tsapiky"
+        },
+        {
+            "id": 3,
+            "title": "TONGA SAINA",
+            "lyrics": "Tsapako ry Tompo fa maro ny ota vitako\nTsapako tokoa fatsy mendrika Anao ny toetrako\nNefa tonga saina aho ankehitriny izao\nIzany indrindra Tompo ò no ifonako Aminao (2)\n\nRy Tompoko, mifona aho e!\nMivalo eto anatrehanao\nOmeo toetra tsara aho\nKaho mendrika anao\n\nEfa hatry ny batemy aho ry Ray no voantsoho zanakao\nNefa noho ny fahatana hadinoko ny Anaranao\nKa avelao ny heloko fa tsy fantatro izay hataoko\nKa mitaho aho ry Ray vonjeo ny fanahiko\n\nRy Raiko ò, tsapako tokoa\nFa tia ny zanakao ianao\nOmeo toetra tsara aho\nKaho mendrika anao",
+            "author": "Sambany Yves",
+            "year": 2014,
+            "category": "Pop & Rock"
+        },
+        {
+            "id": 4,
+            "title": "IRAHO AHO",
+            "lyrics": "Tompo o! irahonao aho\nFa vonona hanao ny sitrakao\nHitory hatrany ilay fiatiavanao\nManeran(a) izao tontoloizao\n\nTompo o ity aho manolo-tena\nHitory sy hanambara ny famonjena\nHitory hatranyilay hafatraoryRay\nHampitombo isa ireo mpianatrao\n\nNefa Tompoo, maro ny sakana\nNy asan’ny satana, ny lalan-kombana\nMatoky ‘zahay fa eo ianao ry Ray\nMpiaro sy mpitantana ny dianay\n\nKa na aiza no haleha Ray o tsy hehemotra\nN’aiza n’aiza no hizoranay\nTsy hihemotra hiroso hatrany\nHitory Anao eran’ny vazan-tany\n\nHerezo Tompo o, ity mpanomponao\nFa vonono hanao ny sitrakao\nHitory hatrany ilay hafatrao ry Ray\nAmin’ireo‘zay tsy mahalala Anao",
+            "author": "Rindra Léon",
+            "year": 2021,
+            "category": "Ballad"
+        },
+        {
+            "id": 5,
+            "title": "HIRA HO ANAO",
+            "lyrics": "Ndreto ‘zahay Ray o manolotra hira ho anao\nMahatsapa ny fitiavanao ka midera ny anaranao\nRay o Ianao nampiray anay\nRayo tantano zahay tsy handao Anao\n\nIanao Jesoa lay zokinay\nIanao ‘lay tia anay e! mpamonjy anay\nJesoa o ndreto re ny zandrinao\nJesoao Aza avelanao handao anao\n\nIanao Maria o ‘lay reninay\nReo renim-pianakaviana e ankininay aminao\nKany Reny anie ho tia ny zanany\nReo zanaka e hanaraka ny fampianarany\n\nManainga namako o hidera ny Tomponao\nFamaro tsy tambo isaina anie reo soa nataony anao\nManainga namakoo hidera ny Tomponao\nAza variana mandany andro amin’ny tsy rariny\n\nManainga anao namako hidera ny Tomponao\nFamaro tsy tambo isaina anie ireo soa nataony anao\nNamako o, saino ny hoavinao\nNamako o, diniho hatrany ny hiafarana",
+            "author": "Sambany Yves",
+            "year": 2017,
+            "category": "Tropical"
+        },
+        {
+            "id": 6,
+            "title": "ANDAO HIDERA",
+            "lyrics": "Andao havako hidera ny nahary e\nAndao namako hidera an’i Jesoa\nAndao isika hidera ny fanahy\nFa maro lahy ty soa nataony antsika e\n\nNy Ray nahary atsika e\nMitovy aminy tokoa isika e (enye)\nNataony ho mpanjakan’ny tontolo (isika lahy)\nMpifehy ireo zava-boary jiaby.\n\nAndao havako hidera ny nahary e\nAndao namako hidera an’i Jesoa\nAndao isika hidera ny fanahy\nFa maro lahy ty soa nataony antsika e\n\nNy zanany nalefany ho antsika e\nNamoy ny ainy ho famonjena antsika e (eny)\nNalefany amintsika ny fanahiny (hanilo atsika)\nHanilo atsika hanao ny sitrapony\n\nAndao havako hidera ny nahary e\nAndao namako hidera an’i Jesoa\nAndao isika hidera ny fanahy\nFa maro lahy ty soa nataony antsika",
+            "author": "Sambany Yves",
+            "year": 2017,
+            "category": "Tsapiky"
+        },
+        {
+            "id": 7,
+            "title": "NY FIAINANAY RAY O",
+            "lyrics": "Ry Rainay ò,ny fiainanay, apetrakay am-pelatananao\n\nZahay anie natsanganao,voafidinao zahay ho zanakao\n\nNefa izahay tsy mihaino Anao,minia‘zahay mandao ny lalanao\n\nNefa izahay tsy mihaino anao,minia‘zahay mandao ny lalanao\n\nRy Rainay ò, zahay anie, tsy mendrika ho anao ny fiainanay\n\nNy fombanay mahamenatra, tsy hajainay reny didinao\n\nNefa izahay nandray anao natsanganao tamin’ ny Bateminay\n\nNefa izahay efa nandray anao natsangnao tamin’ny Bateminay\n\nNdreto izahay ry Ray ò! mifona izahay mivalo e!\n\nAm’ireo ratsy‘zay vitanay\n\nSatria ianao e, Ray mpamindra fo\n\nRainay mpamela heloka, amindrao fo, mamelà ny zanakao\n\nNdreto izahay ry Rayò! mifona izahay mivalo e!\n\nAm’ireo ratsy‘zay vitanay\n\nSatria ianao e, Ray mpamindra fo\n\nRainay mpamela heloka, amindrao fo, mamelà ny zanakao",
+            "author": "Sambany Yves",
+            "year": 2017,
+            "category": "Ballad"
+        },
+        {
+            "id": 8,
+            "title": "MIVERENA",
+            "lyrics": "Aiza moa ianao no hahita hasambarana\nAmin’ ity fiainana mandalo ity\nIo izy Tompo vonona hanampy anao\nKa manantona azy ianao\n\nKa indro ny tanany,\nefa mitsotra handray anao\nKa miverena ianao fa sao very\n\nAiza moa ianao no hahazo fiadanana\nAmin’izao olam-pianana rehetra izao\nIndro ny tompo te hamonjy anao\nKa matokia azy ianao\n\nKa indro ny tanany,\nefa mitsotra handray anao\nKa miverena ianao fa sao very\n\nKa indro ny tanany,\nefa mitsotra handray anao\nKa miverena ianao fa sao very\nKa miverena ianao fa sao very",
+            "author": "Isidore",
+            "year": 2015,
+            "category": "Ballad"
+        },
+        {
+            "id": 9,
+            "title": "ZAZA MPANDANY",
+            "lyrics": "Mba raiso aho ho toy ny mpanomponao\nFa tsy mendrika ny hatao hoe zanakao\nF’ efa nanota teo anatrehanao\nMifonae!raiso aho\n\nInty aho Ray‘lay maditranao\nTsy mendrika ny hody an-tranonao\nNefa manantena an’ilay famindram-ponao\n\nKa mifona aho Ray,mifona aho ray\nMifona aho\n\nTaloha aho tsy nihaino ny anatrao\nFa ny sitrako no notanterahiko\nAnkehitriny aho mivalo aminao\nMifona e! raiso aho\n\nInty aho Ray‘lay maditranao\nTsy mendrika ny hody an-tranonao\nNefa manantena an’ilay famindram-ponao\n\nKa mifona aho Ray,mifona aho ray\nMifona aho",
+            "author": "Isidore",
+            "year": 2014,
+            "category": "Ballad"
+        },
+        {
+            "id": 10,
+            "title": "MIFALIA AMIN’NY FANANTENANA",
+            "lyrics": "Mifalia amin’ny fanantenana\nMiareta amin’ n y fahoriana\nFa raha mbola misy koa ny farany\nTsy hisy fanantenana ho foana\n\nAtaovy izay rehetra hitanao fa mahasoa\nKa mifanaraka amin’ny sitrapon’ilay Ray e!\nFa tsy ho very zara ianao e ia\nRaha tonga amin’izay andro izay e!\n\nAmpitomboy aminao hatrany ny finoana\nHanampy anao tsy ho morakivikivy foana\nFa ny miaraka amin’ i Jesoa tsy ho very\nF’iangaran’ny fitiavany foana\n\nAtaovy izay rehetra hitanao fa mahasoa\nKa mifanaraka amin’ny sitrapon’ilay Ray e!\nFa tsy ho very zara ianao e ia\nRaha tonga amin’izay andro izay e!",
+            "author": "Isidore",
+            "year": 2015,
+            "category": "Tropical"
+        },
+        {
+            "id": 11,
+            "title": "ILAY TSY MAHAFOY",
+            "lyrics": "Tsy hiantso ny marina no niavianao\nFa hamory ny mpanota hanaraka anao\nHiverina amin’izy Ray\n\nKoa faingana, aza mangataka andro\nFa miandry anao Izy isan’andro\n\nTsy mahafoy antsika Izy Ray\nOmaly anio sy ho mandrakizay\nTsy foiny ho very isika na iray\nFa tiany ho sambatra mandrakizay\n\nAvia hanaraka Ahy hoy Ianao,\nAza miherika intsony\nIlaozy ny tany sy ny hareny\nAvia hanaraka ahy hoy Ianao.\n\nKoa faingana, aza mangataka andro\nFa miandry anao Izy isan’andro\n\nTsy mahafoy antsika Izy Ray\nOmaly anio sy ho mandrakizay\nTsy foiny ho very isika na iray\nFa tiany ho sambatra mandrakizay",
+            "author": "Rindra Léon",
+            "year": 2023,
+            "category": "Tropical"
+        },
+        {
+            "id": 12,
+            "title": "MBA TSINJOVY",
+            "lyrics": "Mitodika aminao izahay ry Ray o, mba hitsinjo anay aty\nFa mila tsy ho zaka intsony ireo loza iainanay ety\nMifanenjika ny mpiara-belona, mifamono mifandrafy\nTsy mahalala mifandefitra, fa mifanao valifaty\n\nMba tsinjovy re ry Ray o, ity firenenay ity\nMbatsinjovy ihany koa ireo Fiangonanao ety\nNy mpitondra hiasa tsara, hahay miara-dia\nAry izahay vahoakanao rehetra, hahay hifankatia\n\nAnkinina aminao re ry Ray o, ny Fiangonana eto aminay\nMba hanjakan’ny fifankatiavana, ka hitambatra ho iray\nMba tsinjovy hahay hifampitaiza, izahay zanakao\nKa mba hahay hifankatia,arak’ilay didy nomenao\n\nAry izahay rehetra natsoinao ho zanakao ry Ray\nMba tsinjovy sy tantano amin’izay rehetra atao\nOmeo anay ilay fahasoavana sy fitahiana avy Aminao\nDia hahatsiaro sambatra izahay fa manana Anao Ray",
+            "author": "Rindra Léon",
+            "year": 2023,
+            "category": "Ballad"
+        },
+        {
+            "id": 13,
+            "title": "FANTATRAO NY AMIKO",
+            "lyrics": "Fony mbola tany ambohoka aho dia ianao no nahary ahy.\nTonga teto an-tany aho dia mbola ianao no nintantana ahy\nNatsanganao ho isan'ireo zanakao.\nNoraisinao ho mpanomponao.\n\nIanao ihany ry Ray no mahalala izay mahatsara ahy\nDia mbola ianao koa no mihevitra izay hahasoa ahy\nNy tananao mahery, mitsotra mitantana ahy\nFantatrao ny momba ahy,\nEny fantatrao izay hitondrana ahy\n\nTsisy miafina eo imasonao, izay rehetra momba ahy\nNa ireo efa lasa izany,na‘reo mbola ho avy ihanykoa\nFahasoavanao no nahatoy izao ahy\nNy herinao no mamelona ahy\n\nIanao ihany ry Ray no mahalala izay mahatsara ahy\nDia mbola ianao koa no mihevitra izay hahasoa ahy\nNy tananao mahery, mitsotra mitantana ahy\nFantatrao ny momba ahy,\nEny fantatrao izay hitondrana ahy",
+            "author": "Rindra Léon",
+            "year": 2023,
+            "category": "Latin"
+        },
+        {
+            "id": 14,
+            "title": "MIANGAVY RY RAY (Ranombavaka)",
+            "lyrics": "Ndreto ‘zahay miangavy ry Ray\nMitalaho izahay ny famindram-ponao\nMiangavy ray, mitalaho izahay\nTantanao sy vimbinonao ary amindrao fo\n\nI-Ny papanay, ny Evekanay sy ny Pretranay\nNy relijiozy mba tahio hampandroso Anao\nSafidinao izy ireo hitondra anay vahoakanao\nKoa mba tantanonao sy vimbinonao ary amindrao fo\n\nII-Ny mpitondra anay mpitsara anay sy olom-boafidy\nBitsiho ny fanahinao hanaraka ny marina\nKa ny tanìnay anie, hiadana ho finaritra\nEny sambatra, sambatra tokoa izahay\n\nIII-Ary izahay nandray Anao sy natsanganao\nOmeo fifankatiavana mba ho modely amin’izay atao\nZanakao ‘zahay, aza afoy ry Ray\nKoa mba tantanonao sy vimbinonao ary amindrao fo",
+            "author": "A/C:Sambany Yves",
+            "year": 2018,
+            "category": "Ballad"
+        },
+        {
+            "id": 15,
+            "title": "MIBEBAHA",
+            "lyrics": "Mba mivavaha mba mibebaha\nTsika iaby koa longo ò\nHiala amin’nyratye!\n\n1-Izy Tompo anie e, mitady anao\nKa dieny izao ianao manantona azy\n\n2-Ny Tompo anie e! miandry anao\nKa mandehana dieny izao,fa mbola tsy tara\n\nMba mivavaha mba mibebaha\nTsika iaby koa longo ò\nHiala amin’ny raty e!\n\n3- Miambena ianao,mitandrema ihany\nFa ho avy anie‘lay andro iray hitsarana anao\n\nMiambena ianao,mitandrema ihany\nFa ho avy anie‘lay andro iray hitsarana anao\n\nMba mivavaha mba mibebaha\nTsika iaby koa longo ò\nHiala amin’ny raty e!",
+            "author": "Rija",
+            "year": 2013,
+            "category": "Latin"
+        },
+        {
+            "id": 16,
+            "title": "MIOVA IANAO",
+            "lyrics": "Miova ianao re ra namako o,\nMiova ianao re ra havako o\nFa efa akaiky izao farany,\nManantona an’ilay Ray\n\nMiova ianao re ry namako o, mitiava ireo namanao\nIalao ny fahazaran-dratsy izay mitarika anao fa…\n\nEfa akaiky izao ny farany\nHitsarana anao araka ny vitanao\n\nMiova ianao re ra havako o, mitiava ireo fahavalonao\nMifandefera sy mifamelà, ialao ny toetra ratsy fa...\n\nEfa akaiky izao ny farany\nHitsarana anao araka ny vitanao\n\nEfa akaiky izao ny farany, hitsarana atsika rehetra\nMiambena ary mivavaha fa tsy fantatra izay hiaviany fa...\n\nEfa akaiky izao ny farany\nHitsarana anao araka ny vitanao\n\nManantona an’ilay Ray, mifonà amin’i Jesoa\nMangataha amin’ilay Reny, ary koa ‘lay Fanahy Masina ka…\n\nMibebaha amin’nyfo madio\nFa ho voavonjy ianao, ho voavonjy ianao",
+            "author": "Rindra Léon",
+            "year": 2020,
+            "category": "Pop & Rock"
+        },
+        {
+            "id": 17,
+            "title": "ILAY PARADISA",
+            "lyrics": "Ny olombelona eto ambony tany\nSamy manana ny manahirana azy\nTsy mahalala akory izay hiafarana\nFa variana amin'izao tontolo izao\n\nTsy fantatrao ve fa ao ambadika ao\nMisy toerana hafa iray vaovao\nDia 'lay paradisa tontolo iray vaovao\nRehefa tapitra zao fiainana eto izao\n\nMba fantatrao ve fa mandalo no eto\nHo rava avokoa izao tontolo izao\nAmin'ny fotoana tsy ampoizinao\n‘Ndao hibanjina ilay fianam-baovao\n\nTsy fantatrao ve fa ao ambadika ao\nMisy toerana hafa iray vaovao\nDia 'lay paradisa tontolo iray vaovao\nRehefa tapitra zao fiainana eto izao",
+            "author": "Rindra Léon",
+            "year": 2023,
+            "category": "Tropical"
+        },
+        {
+            "id": 18,
+            "title": "NOELY",
+            "lyrics": "Noely, Noely, Noely, Noely,\nTeraka Jesoa hamonjy ny olona a\nNoely Noely, ‘lay vaovao mahafaly\nTeraka Jesoa hamonjy anay\n\nAza matahotra ry mpiandry ondry o\nFa vaovao mahafaly no ambarako anareo\nTeraka ho anareo ao an-tranonomby anio\nNy Mpamonjy ilay Mesia\n\nNoely, Noely, Noely, Noely,\nTeraka Jesoa hamonjy ny olona a\nNoely Noely, ‘lay vaovao mahafaly\nTeraka Jesoa hamonjy anay\n\nIanao ry Betilehema soa o\nNa dia ianao no kely indrindra amin’ny vohitr’I Jodea\nIndro misandratra avo no izy ireo ianao\nFa ao aminao no iavian’ny famonjena\n\nNoely, Noely, Noely, Noely,\nTeraka Jesoa hamonjy ny olona a\nNoely Noely, ‘lay vaovao mahafaly\n\nTeraka Jesoa hamonjy anay",
+            "author": "Sambany Yves",
+            "year": 2018,
+            "category": "SudAf"
+        },
+        {
+            "id": 19,
+            "title": "ATSIKA RO IRAIKA",
+            "lyrics": "Mba hiombogna amin'ny Eglizy miara-dia\nHo fandraisana anjara amin'ny asa fagnirahana\nAno atsika aby izao hitambatsa ho iraika\nHampanjaka firaisankigna sy fifankatiavana\n\nAtsika ro iraika e, hagnamafy ny finoana\nAtsika ro iraika e, hagnamafy ny fitiavana\nAtsika ro iraika e, hagnome fagnatignana\nAtsika ro iraika e, hitory ny vaovao mahafaly\n\nNatao mba hifameno atsika eko tsa hifankahala\nHikaroka ny soa hatrany eko ano hiara-dalagna\nKoa anò ary atsika izao, antambaro ny hery\nFa ny asam-pinoana tsamba efan'irery\n\nAtsika ro iraika e, ao amin'i Jesoa\nAtsika ro iraika e, hiombogna amy soa\nAtsika ro iraika e, hiaigna fiombognana\nAtsika ro iraika e, hagnasoa ny Fiangonana\n\nRy Masina Maria, Mivavaha ho anay\nRy Md Josefa, Mivavaha ho anay\nRy Mb Elisabeth, Mivavaha ho anay\nSy Md François, Mivavaha ho anay\nRy Md Benoit, Mivavaha ho anay\nRy Mb Claire, Mivavaha ho anay\nSy Md Thomas, Mivavaha ho anay\nIgnace de Loyola, Mivavaha ho anay\n\nMivavaha ho anay, agnareo olomasina aby e\nMivavaha ho anay, agnareo olon-tsambatsa aby e\nMivavaha ho anay.\nMivavaha ho anay.",
+            "author": "Rindra Léon",
+            "year": 2023,
+            "category": "Tropical"
+        },
+        {
+            "id": 20,
+            "title": "ANO HIVAVAKA",
+            "lyrics": "Eh e e e! Ano e raona mba hivavaka\n1- Ny manahiragna raha tsa ho lany\nLeko apitso izay na androany\nKoa ano hiherigna amin’ilay nahary\nMba tsa ho very sy agnafara agny.\n\nEko ina kero ataonay fa agnay mba te hivavaka\n\nAno e hiditsa agnampiangonana\nHibebaka amin’ireo ratsy vita\nMangatakaamin’Andriamagnitsa\nTsa hamerigna koa ny amy sisa\nMivavaka amin’nyandro alahady\nAja laitsa mandray angady\nAvilao nyratsy mahazatsa\nAmin’izayagnaotsahovakytratra.\n\n2-Tsa mapanegnina raona\nNy mivavaka amin’Andriamagnitsa\nTena tsa misy raha mahangoaigna\nFa de velombelogna aby soa ny aigna",
+            "author": "Rindra Léon",
+            "year": 2025,
+            "category": "Tropical"
+        },
+        {
+            "id": 21,
+            "title": "MISAOTRA ANAO",
+            "lyrics": "Amin’izao andro izao ry Ray o;\nNdeha hisaoranay Anao\nIanao namorona izao rehetra izao,\nNamolavola anay vatana sy fanahy\nIanao niaro anay hatrizay ka hatramin’izao\n\nFitiavam-be nomenao anay,\nTsy hovoatanisa izy ireo fa ao amponay\nKa noho izany indrindra ry Ray o,\n‘Ndeha hisaoranay Ianao\n\nAmin’izao andro izao Jesoa o,\nNdeha hisaoranay ianao\nIanao tokoa lay zoky tia anay,\nTonga tety an-tany hamonjy anay\nNampianatra ianao, hahatonga anay ho zanaky ny Ray\n\nNy ainao no nafoinao,\nHo fara famonjena ho anay zandrinao.\nKa noho izany indrindra jesoa o,\n‘Ndeha hisaoranay ianao\n\nAnkehitriny izao Fanahy o,\nNdeha hisaoranay ianao\nIanao mitsilo anay hatrimin’izao,\nManampy anay hahalala ny Ray,\nNy bitsikao ao am- ponay, no ahafataranay ny sitraky ny Ray,\n\nNa maro aza ny ota vitanay,\nTsy miala ianao fa manazava anay\nKa noho izany indrindra Fanahy,\n‘Ndeha hisaoranay Ianao",
+            "author": "Rindra Léon",
+            "year": 2024,
+            "category": "Ballad"
+        },
+        {
+            "id": 22,
+            "title": "NY FITIAVANAO RAY O",
+            "lyrics": "Ny fitiavana nomenao anay Ray o\nDia fitiavana tsy misy tambiny\nFitiavana madio tsy misy fetra\nFitiavana marina ho anay rehetra\n\nEndrey ny haleben’ny fitiavanao anay Ray o\nFa nomenao ho anay ny zanakao\nMba tsy ho very izahay rehetra mino Anao\nFa hanana ny fiainana mandrakizay\n\nTsy ho voatanisa raha ny fitiavanao anay Ray o\nFa nafoinao hatramin’ny zanakao\nMaty novonoina hisolo voina anay\nMba hahatonga anay ho zanakao indray\n\nEndrey ny haleben’ny fitiavanao anay Ray o\nFa nomenao ho anay ny zanakao\nMba tsy ho very izahay rehetra mino Anao\nFa hanana ny fiainana mandrakizay",
+            "author": "Rindra Léon",
+            "year": 2025,
+            "category": "Latin"
+        },
+        {
+            "id": 23,
+            "title": "NY ZANAKAO HO ANAY",
+            "lyrics": "Efa nomenao ho anay ny Zanakao,\nIlay Teny tonga nofo, nonina teto aminay.\nIzy no nampianatra anay hahalala Anao,\nNampivavaka anay, namonjy fanahy,\nMba ho tonga zanakao indray.\n\nNanome anay sakafo mahavelona,\nNy vatan’ny Zanakao sy ny rany masina.\nIzay mandray Azy, dia velona mandrakizay,\nKa sambatra izahay manana Anao, ry Ray.\n\nNoho ilay Zanakao tonga teto aminay,\nAfaka mitambatra Aminao izahay.\nIzy no nampihavana anay aminao,\nKa fifankatiavana no didy napetrany,\nIzay no marika fa zanaky ny Ray.\n\nRaha mifankatia sy mahay miara-dia,\nIzay vao tena mpianany marina.\nDidy vaovao no omeny anay,\nMifankatiava toy ny nitiavany anay.\n\nFifankatiavana no mampandova ny lanitra,\nFototry ny hasambarana mandrakizay.\nFihavanana lalina sy maharitra,\nNo mitondra antsika ho any an-danitra.",
+            "author": "Rindra Léon",
+            "year": 2025,
+            "category": "Waltz"
+        },
+        {
+            "id": 24,
+            "title": "ANTSAN’NY FITIA",
+            "lyrics": "Ny fitiavana Anao ry Ray no mampivory anay\nHidera sy hankalaza ny voninahitrao\nNantsoin’ny fitiavana ka mitambatra ho iray\nHanandram-peo hidera ny Anaranao\n\nHiantsa izahay, ho an’ny voninahitrao\nHihira izahay, ho fitiavana Anao\nAntsan’ny Fitia, no anarana entinay\nHo entina hankalaza sy hanompoana Anao\n\nIreo hafatra napetrakao no ho tohizanay\nNy Evanjely i Jesoa no ho torianay\nNy lalan’ny fitiavana no hizoranay\nHitorianay an-kira ireo hafatrao\n\nRy Ray be fitiavana o mba tahio re zahay\nMasina Maria reny o, tantano izahay\nRy masindahy Fransoa o,mivavaha ho anay\nRy Mb Cecile o, arovy koa zahay",
+            "author": "Rindra Léon",
+            "year": 2025,
+            "category": "SudAf"
+        },
+        {
+            "id": 25,
+            "title": "AROVY AHO TOMPO",
+            "lyrics": "Maro loatra Tompo o, ‘reo ratsy manodina ahy\nMisarika ahy isan’andro hanalavitra Anao\nFa tsy ho kivy aho, fa ho sahy hijoro\nSatria ‘reo Anjelinao miaro sy mitantana ahy\n\nArovy aho Tompo o, arovy aho\n\nAmin’ny ratsy rehetra, arovy aho\n\nArovy aho Tompo o, arovy aho\n\nAmin’ny fakam-panahy, arovy aho\n\nMaro loatra Tompo o, ‘reo fahavalo manodidina ahy\nMikatsaka isan’andro izay hamotika ny aiko\nMifaly amin’ny fahavoazako izy ireny Tompo o\nRaha mandalo sedra sy fitsapana aho.\n\nArovy aho Tompo o, arovy aho\n\nAmin’ny fahavalo, arovy aho\n\nArovy aho Tompo o, arovy aho\n\nAmin’ny asan’ny demony, arovy aho\n\nFa ianao no heriko, ianao ilay mpandresy\nAo aminao no hitoerako mandrakizay\nNa hisy hery hanohitra, tsy ho kivy aho\nFa eo anilako ianao ry Tompo o",
+            "author": "Rindra Léon",
+            "year": 2025,
+            "category": "Ballad"
+        },
+        {
+            "id": 26,
+            "title": "NY ANTSONAO",
+            "lyrics": "Teo anivon’ny fiaraha-monina aho no nantsoinao,\nHandray ny hafatrao sy hanatanteraka ny sitrakao.\nNofidianao aho hanohy ireo asanao, ry Ray,\nHandeha amin’ny lalana efa voasoratrao ho ahy.\n\nLala-tokana nofidinao mba ho ahy, Ray,\nKa harahiko am-pinoana sy am-pitiavana.\nNa ho lahika, na hanokan-tena ho Anao,\nNy hanompo Anao no sitrako.\n\nTeny an-dalana aho no nandray ny antsonao,\nTao amin’ny nofiko aho, mahita ny endrikao\nNy voarinao rehetra ahatsapako ny hatsaranao,\nHandeha amin’ny lalana efa voasoratrao ho ahy.\n\nLala-tokana nofidinao mba ho ahy, Ray,\nKa harahiko am-pinoana sy am-pitiavana.\nNa ho lahika, na hanokan-tena ho Anao,\nNy hanompo Anao no sitrako.\n\nEny, indro aho, vonona hanaraka anao,\nNa aiza na aiza hitarihanao,\nNy foko atolotro ho sorona masina,\nMba ho fanilo amin’ny lalako.",
+            "author": "Rindra Léon",
+            "year": 2025,
+            "category": "Ballad"
+        },
+        {
+            "id": 27,
+            "title": "MISAOTSA BABA",
+            "lyrics": "Ny fahasoavana hataminao ry Ray o\nRo mampivory anay tahak’izao\nNotatagninao agnay, notsimbigninao agnay\nKa misaotra e, mankasitraka\n\nNomenao anay ny masoadro sy ny volagna\nAnjakanay zy raha aby zao\nTsa mendrika anie moa agnay e feny tsa narianao\n\nNalefanao hatagny ny zanakao lahy\nMaty namonjy anay e\nNapenao koa ny Fagnahy e mba hankahery anay\n\nAgnao eny moa ro naha tahak’izao anay\nNitsimbigny e ko nitahy ny fiaignanay\nNy hiafaranay tsamba fatatsa (lehy tsy nisy anao e)\nIe e e (Agnao e ro isaorana)\nIe e e (Ny agnaranao deraina)\n\nNomenao ireo ray amin-dreny,\nNikolo sy nagnabe anay\nNagnatsa ko nagnatoro, ny lalagna hombana\n\nRaha be tsa voatanisa ny soa nataonao Baba o\nNy tombon’andro sy ny sisa\nDia zendagna agnay sy mamisavisa",
+            "author": "Sitraka",
+            "year": 2024,
+            "category": "Tropical"
+        },
+        {
+            "id": 28,
+            "title": "NANDAO ANAO (mifona)",
+            "lyrics": "Nandao Anao agnay Ray o\nTsy nagnaraka ny sitrakao\nTsy nagnaja koa ny Agnaranao\n\nTompo o mamindra fo aminay\n\nTsy nihaino ny anatrao agnay Kristy o\nTsy niaigna ilay fitiavanao\nNandika koa ireo didinao\n\nKristy o mamindra fo aminay\n\nTsy niagna (ny) fitiavanao agnay Fanahy o\nTsy niaigna ireo fanomezanao\nNandika koa ny fampianaranao\n\nTompo o, mamindra fo aminay",
+            "author": "Rindra Léon",
+            "year": 2025,
+            "category": "Ballad"
+        },
+        {
+            "id": 29,
+            "title": "EFA NANDRESY",
+            "lyrics": "Tamign’andro voalohagny herignandro\nDa lasa i Maria sy gny mpianatra\nNandeha ame fasagny\nMba hagnety gne fatin’ny Tompo\n\nVaravaragny fasagna mikodia\nTamitiagny e hitandreo\nEh lambam-paty igny efa nivalogny\nFa velogne e Tompo\n\nGne Anjelin’ny Tompo nizaka hoe:\nFa magnino no amitiagny (aty amy tanigne maty)\nItadiavanareo gnefa velogny\n\nAlao ambarao amigne firenegna rehetra\n\nFa efa nitsangan-ko velogny e Tompo\n\nAleloia",
+            "author": "Rindra Léon",
+            "year": 2025,
+            "category": "Tropical"
+        },
+        {
+            "id": 30,
+            "title": "PAKA FANAVOTANA",
+            "lyrics": "Tonga ity ‘lay andro iray,\nAndro malaza andro voavidy hiravoana\nTonga ity ‘lay andro iray,\nAndro malaza andro voavidy hiravoana\nResin-janakao ny fahafatesana ka velona ny finoanay\nResin-janakao ny fahafatesana ka velona ny finoanay\n\nEfa hatrany am-piandohana ry Ray o,\nNo nanavotanao anay\nAnisany taratra amin’izany,\nNy paka tamin’ny vahoaka Israely\n\nFa ankehitriny e\nNy pakanay ry Ray dia ‘lay zanakao ho anay\nNandresy ny fahafatesana\nKa miorina amin’izany tokoa ny finoanay\n\nF’indray andro tahak’izao ry Ray o,\nNasehonao ho hitanay e\nNy voninahitrao tsitoha,\nMba hahatonga anay hino anao kokoa\n\nFa i Jesoa Tompo e\nNandresy ny haizana, niala ny fasana\nNanao fahagagana lehibe\nKa velona amin’izany tokoa ny finoanay e",
+            "author": "Sambany Yves",
+            "year": 2016,
+            "category": "Waltz"
+        },
+        {
+            "id": 31,
+            "title": "MIVERENA RY ZANAKO",
+            "lyrics": "1- Mitalaho Aminao, Andriamanitra ô,\nNy foko diso, maniry ho madio.\nNiala taminao, nandao ny lalanao,\nFa indrisy, Andriamanitra ô, miverina aho.\n\nRy Ray be fitiavana, mamela anay,\nMiverina izahay, raiso an-tratranao.\nNy fitiavanao, tsy misy fetra,\nMamelà anay, ry Andriamanitra ô.\n\n2- Tompo ô, fantatrao ny helokay,\nNa nania izahay, na nanadino Anao.\nFa mbola antsoinao hoe: “Avia,\nFa ny foko malalaka ho an’ny zanako.”\n\nRy Ray be fitiavana, mamela anay,\nMiverina izahay, raiso an-tratranao.\nNy fitiavanao, tsy misy fetra,\nMamelà anay, ry Andriamanitra ô.",
+            "author": "Rindra Léon",
+            "year": 2025,
+            "category": "Pop & Rock"
+        },
+        {
+            "id": 32,
+            "title": "NY VATANAO HO ANAY",
+            "lyrics": "Ny mofo sy divay natolotrao ho anay\nTonga vatanao sy ranao masina\nIzay mandray azy tafaray aminao\nMahatonga anay ho iray amin’ny Ray\n\nRy Jesoa o mitoera ato aminay\nEnga anie ho feno Anao izahay\nNy herinao no ho fiainanay mandrakizay\nMba ho vavolombelona amin’ny fitiavana\n\nMisaotra anao, ry Jesoa be fitiavana\nFa nomenao anay ny tenanao\nSakafo mamelona sy manamasina\nFanomezana feno fitiavana\n\nRy Jesoa o mitoera ato aminay\nEnga anie ho feno Anao izahay\nNy herinao no ho fiainanay mandrakizay\nMba ho vavolombelona amin’ny fitiavana",
+            "author": "Rindra Léon",
+            "year": 2025,
+            "category": "Ballad"
+        },
+        {
+            "id": 33,
+            "title": "NY MANANA ANAO",
+            "lyrics": "Ny manana Anao ry Tompo mahery\nTsy mba mety ho very izany\nNy mandray anao mpamonjy mahery\nManantena fiainam-baovao\n\nNy manana Anao mahatsiaro sambatra\nNy manana Anao mahazo manantena\nNy manana Anao tsy mba sasatra\nNy manana Anao mahazo famonjena\n\nNy manana Anao mahazo fiadanana\nNy manana Anao feno hafaliana\nNy manana Anao fifankatiavana\nNy manana Anao dia fahamarinana\n\nNy manana Anao manam-piaro\nNy manana Anao tsy mba miady irery\nNy manana Anao tsy mba very\nNy manana Anao tsy mba ketraka\n\nNy manana Anao fahamasinana\nNy manana Anao fahasoavana\nNy manana Anao fahendrena\nNy manana Anao fandresena",
+            "author": "Rindra Léon",
+            "year": 2025,
+            "category": "Tsapiky"
+        },
+        {
+            "id": 34,
+            "title": "NANDRESY IANAO",
+            "lyrics": "Jesoa o, Jesoa o, novonoina Ianao e e\nJesoa o,Jesoa o, ho famonjena an’izao tontolo izao\nNefa nitsangana aa, mba hofandresena ho anay\n\n1- Tanteraka ny zavatra rehetra\nNy Ainao masina no nalatsakao\nNovonoina ianao ary nalevina\nHo famafana ny otanay rehetra\n\nJesoa o, Jesoa o, novonoina Ianao e e\nJesoa o,Jesoa o, ho famonjena an’izao tontolo izao\nNefa nitsangana aa, mba hofandresena ho anay\n\n2- Tanteraka ny zavatra rehetra\nAfaka hateloana, afaka hateloana\nNitsangana Ianao,foana ny fasana\nFandresena ho anay zandrinao\n\nJesoa o, Jesoa o, novonoina Ianao e e\nJesoa o,Jesoa o, ho famonjena an’izao tontolo izao\nNefa nitsangana aa, mba hofandresena ho anay",
+            "author": "Rindra Léon",
+            "year": 2025,
+            "category": "Pop & Rock"
+        },
+        {
+            "id": 35,
+            "title": "MATOKY ANAO",
+            "lyrics": "Raha manarona ahy ny haizina\nSy ny herin’ny ratsy\nTsy ho kivy aho, tsy ho resy\nFa Ianao no hianteherako\n\nAndriamanitra o, Ianao no heriko\n\nIanao ‘lay mampandresy ahy\n\nMatoky aho fa manana Anao\n\nMpitantana sy mpiahy ny diako\n\nNa dia misy ‘reo fahavalo\nMamitaka sy manenjika\nNy teninao no hianteherako\nMba tsy ho solafaka aho\n\nAndriamanitra o, Ianao no heriko\n\nIanao ‘lay mampandresy ahy\n\nMatoky aho fa manana Anao\n\nMpitantana sy mpiahy ny diako",
+            "author": "Rindra Léon",
+            "year": 2025,
+            "category": "Ballad"
+        },
+        {
+            "id": 36,
+            "title": "MISAOTRA RAY TSITOHA",
+            "lyrics": "Misaotra Anao ry Ray Tsitoha\nIanao nahary izao tontolo izao\nNy fitiavanao tsy misy fetra\nManohana anay hatrany hatrany\n\nO misaotra Anao, o misaotra Anao\nAndriamanitra be fitiavana tsy mba mandao\nRay mpamindra fo, Ianao mpahary anay\nJesoa Kristy Tompo, mpanavotra anay\nAry koa ilay Fanahy, ‘zay mampiray anay\n\nIanao Jesoa, zanak’Andriamanitra\nNijaly sy maty ho famonjena anay\nNy rànao no nanavotra anay\nMba hahatonga anay ho olom-baovao\n\nO misaotra Anao, o misaotra Anao\nAndriamanitra be fitiavana tsy mba mandao\nRay mpamindra fo, Ianao mpahary anay\nJesoa Kristy Tompo, mpanavotra anay\nAry koa ilay Fanahy, ‘zay mampiray anay\n\nRy Fanahy Masina, mpankahery anay\nMpanome hazavana sy fahamasinana\nNampianatra hizotra amin’ny marina\nHo vavolombelona amin’ny fitiavana\n\nO misaotra Anao, o misaotra Anao\nAndriamanitra be fitiavana tsy mba mandao\nRay mpamindra fo, Ianao mpahary anay\nJesoa Kristy Tompo, mpanavotra anay\nAry koa ilay Fanahy, ‘zay mampiray anay",
+            "author": "Rindra Léon",
+            "year": 2025,
+            "category": "Tropical"
+        },
+        {
+            "id": 37,
+            "title": "RY FANAHY MASINA O",
+            "lyrics": "Midina eto aminay, ry Fanahy Masina o\nHenoy re ‘zao antsonay izao\nFenoy ny herinao sy fahasoavanao ‘zahay\nEnga anie mba hatoky anao ‘zahay\n\nRy Fanahy Masina o, midina eto aminay\nTariho izahay, ho amin’ny fahazavanao\nHazavao ny fonay mba ho vaovao\n\nIanao no mpanazava, sy mpankahery anay\nIanao no mpanamasina\nAmpianaro izahay, hitia sy hamindra fo\nMba ho vavolombelon’ny fitiavanao\n\nRy Fanahy Masina o, midina eto aminay\nTariho izahay, ho amin’ny fahazavanao\nHazavao ny fonay mba ho vaovao\n\nMiaraha aminay ry Fanahy Masina o\nOmeo anay ‘reo fahasoavanao\nVonoy ao anatinay ny herin’ny maizina\nMba hizoranay amin’ny fahazavanao\n\nRy Fanahy Masina o, midina eto aminay\nTariho izahay, ho amin’ny fahazavanao\nHazavao ny fonay mba ho vaovao",
+            "author": "Rindra Léon",
+            "year": 2025,
+            "category": "Ballad"
+        },
+        {
+            "id": 38,
+            "title": "FITIAVAN’ANDRIAMANITRA",
+            "lyrics": "Ry Ray be fitiavana o\nNy tananao tsy mba mandao\nNoharinao am-pitiavana izahay\nHo sambatra mandrakizay\n\nFitiavanao, tsy miova, omaly anio mandrakizay\nFahazavana ho anay, eny an-dalana eny\nIanao ny fiainanay, ao am-ponao be fitia\nRy Andriamanitra o be fitiavana\n\nNa dia lalina ny hadisoanay\nFamindram-ponao tsy ritra\nJesoa efa nanolotra ny Ainy\nHo famonjena anay rehetra\n\nFitiavanao, tsy miova, omaly anio mandrakizay\nFahazavana ho anay, eny an-dalana eny\nIanao ny fiainanay, ao am-ponao be fitia\nRy Andriamanitra o be fitiavana\n\nRy Fanahy masina mpitari-dalana\nMampianatra anay hitia marina\nHizara sy hamindra fo\nHo vavolombelonao eto an-tany\n\nFitiavanao, tsy miova, omaly anio mandrakizay\nFahazavana ho anay, eny an-dalana eny\nIanao ny fiainanay, ao am-ponao be fitia\nRy Andriamanitra o be fitiavana",
+            "author": "Rindra Léon",
+            "year": 2025,
+            "category": "Latin"
+        },
+        {
+            "id": 39,
+            "title": "VONJEO ZANAHARY",
+            "lyrics": "Mitalaho Aminao izahay, Zagnahary e,\nMba hamonjy ity taninay fa tena mijaly.\nManjaka loatra aminay ty fitiavan-tegna,\nMamotiky tena mandrava ty firenena.\n\nVonjeo ‘zahay Zagnahary fa mijaly e\nLako loatsy fijalia atoy ka maharary e\nAniraho fanahy e, handresanay ty raty e\nOmeo fo vaovao e, hifankatiavanay e\n\nMbo manjaka e ty ratsy naho ty herisetra\nKolikoly izao tsy volagny, fandriam-pahalema\nMbo manjaka e sikily fanompoam-tsampy e\nNy mpilongo mialy e, lasa mifandrafy e\n\nVonjeo ‘zahay Zagnahary fa mijaly e\nLako loatsy fijalia atoy ka maharary e\nAniraho fanahy e, handresanay ty raty e\nOmeo fo vaovao e, hifankatiavanay e",
+            "author": "Rindra Léon",
+            "year": 2025,
+            "category": "SudAf"
+        },
+        {
+            "id": 40,
+            "title": "TSAROVY ANDRIAMANITRA",
+            "lyrics": "Matetika any moa agnay magnadino Anao\nMiaigna eto ambony tany tsa miherika Anao\nLefa mety ny atao, tsamba mahatsiaro Anao\nRefa voadogna agnay vo mangaika Anao\n\nAza miandry voadogna Agnao\nVo mahatsiaro an’Andriamagnitsa\nAza miandry ho kivy Agnao\nVo mahatsiaro ny Agnarany\nAo aminazy ao ro misy fiadagnana\nAo aminazy ao ro misy hafaleana\nAo aminazy ao ro misy hasambarana\nAo aminazy ao ro misy fitoniana\n\nMatetika any moa agnay, sy efa tena resy\nTsa mahomby amin’ny asa atao vo mitodika Anao\nLefa mandalo ady sarotsa vo mba mahatsiaro Anao\nRefa voadogna agnay vo mangaika Anao\n\nAza miandry voadogna Agnao\nVo mahatsiaro an’Andriamagnitsa\nAza miandry ho kivy Agnao\nVo mahatsiaro ny Agnarany\nAo aminazy ao ro misy fiadagnana\nAo aminazy ao ro misy hafaleana\nAo aminazy ao ro misy hasambarana\nAo aminazy ao ro misy fitoniana",
+            "author": "Rindra Léon",
+            "year": 2025,
+            "category": "Tropical"
+        },
+        {
+            "id": 41,
+            "title": "FAMONJENA HO ANAY",
+            "lyrics": "Ho famonjena izao tontolo izao\nNo indro nahatongavanao\nHanafaka anay mpanota a\nMba hahazo fiainam-baovao\n\n1- Zanakin’ny Ray mpahary e\nEfa voalazan’ny mpaminany e\nTonga mba hanetry tena\nNitondra an’ilay famonjena\n\nZanakin’ny Zanahary e\n\nTonga teto ambony tany e\n\nTamin’ny andro sasakalina iny e\n\nNaterak’i Maria virjiny e\n\n2- Nampianatra anay hifankatia\nIanao Jesoa zoky be fitia\nNanafaka tamin’ny fahoriana\nTeo amin’ny hazo fijaliana\n\nVitanao reo asa teto an-tany e\n\nIndro niakatra any an-danitra any e\n\nNandefa ny fanahy Masina\n\nMpankahery sy mpanamasina",
+            "author": "Rindra Léon",
+            "year": 2025,
+            "category": "Afrobeats"
+        },
+        {
+            "id": 42,
+            "title": "RY MARIA O",
+            "lyrics": "Ry Maria be fitiavana o,midera Anao izahay\nIanao ilay renin’Andriamanitra sady reninay koa\nTariho izahay mba ho amin’ny lalan’ny zanakao\nHo tonga eo anilanao any an-danitra any.\n\n1- Ianao ilay feno hasoavana, reny masina indrindra\n‘Lay fatram-panaja ny sitrak’Andriamanitra Ray\nRehefa tonga ny Anjely Gabriely dia hoy ianao\n“Inty aho ankizivavin’ny Tompo,\naoka ho tanteraka amiko ny teninao”.\n\nRy Maria o,midera Anao izahay, ry reny be fitiavana\nIanao ilay renin’Andriamanitra sady reninay koa\nTariho izahay mba ho amin’ny lalan’ny zanakao\nHo tonga eo anilanao any an-danitra any.\n\n2- Ianao ilay reny tsy mahafoy, na amin’ny mora na sarotra\nHatreny am-ptotry ny hazo fijaliana, nijoro hatrany Ianao\nNampianatra anay hiaina sy hahay menetry tena\nIanao ilay kintan’ny maraina mamiratra,\nMitondra anay ho eo anatrehan’ny Ray",
+            "author": "Rindra Léon",
+            "year": 2025,
+            "category": "Ballad"
+        },
+        {
+            "id": 43,
+            "title": "E TSARA IZY",
+            "lyrics": "Zagnahary izao lahy e, Ray be fitia\nNy fitiavany anao, anio sy ho doria\nMpamindra fo aminao, mpamaly vavaka e\nFitiavana isanandro vaky, atosany aminao izao o\n\nEh tsara izy e, eh tsara izy e\nBe fitiavana, tsy mila tambiny e\nTsy mahafoy, tsy mba manavaka e\nOmaly anio sy ho mandrakizay.\n\nZagnahary izao lahy e, Ray be fitia\nMpanambitamby anao, mpamelona anao\nTsy mba manary anao, mpanafaka anao\nFamindram-po isanandro, atosany aminao izao o\n\nEh tsara izy e, eh tsara izy\nBe fitiavana, tsy mila tambiny e\nTsy mahafoy, tsy mba manavaka e\nOmaly anio sy ho mandrakizay.",
+            "author": "Rindra Léon",
+            "year": 2025,
+            "category": "Afrobeats"
+        },
+        {
+            "id": 44,
+            "title": "MIBEBAHA 2.0",
+            "lyrics": "Ry Tompo o, ndreto izahay manantona anao\nFa difitry ny ota, vesaram-pahoriana\nMatetika izahay no mandao ny làlanao\n Mihaino izao tontolo izao fa tsy ny Teninao\n\tIlay fitiavanao tsy mba niainanay\n\tNandao ny hazavanao, nifidy ny haizina\n\tKanefa mbola tsy afoinao ho very re\n\tFa antsoinao am-pitiavana hoe miverena\n\nMibebaha, miverena amin'ny Tompo\nFa izy lehibe rain'ny famindram-po\nMiebaha omeo azy ny fonao\nFa vonona izy hamela sy handio anao\n\nRy Jesoa o,zanak'Andriamanitra\nIanao no lalana, fahamarinana ary fiainana\nTeo amin'ny hazo fijaliana nanavotra anay\nNamoy ny ainao masina handio ny otanay\n\tAmpianaro izahay hibebaka amin-po madio\n\tTsy amin'ny teny ihany fa amin'ny asa sy fiainana\n\tOvay ny fonay ho fo vaovao sy madio\n\tHo vavolombelon'ny fitiavanao mandrakizay.\n\nMibebaha, miverena amin'ny Tompo\nFa izy lehibe rain'ny famindram-po\nMiebaha omeo azy ny fonao\nFa vonona izy hamela sy handio anao",
+            "author": "Rindra Léon",
+            "year": 2026,
+            "category": "Ballad"
+        },
+        {
+            "id": 46,
+            "title": "TRINITE MASINA",
+            "lyrics": "Ry Ray Masina, loharanon'aina sy hazavana\nIanao mpahary izao tontolo sy ny olombelona\nNy Teninao sy ny sitrakao no mitarika anay\nAy ny fitiavanao no iankinanay mandrakizay\n\n\tVoninahitra anie ho an'ny Trinité Masina\n\tRay sy Zanaka ary Fanahy Masina iray ihany\n\tAndriamanitra tokana nefa telo izay miasa aminay\n\tHoderainay mandrakizay, Trinite Masina o\n\nRy Jesoa Kristy, zanaka tokana mpamonjy anay\nTenin'ny Ray tonga nofo ho famonjena izao tontolo izao\nNandresy ny fahotana sy ny fahafatesana Ianao\nKa ianao no lalana sy fahamarinana ary fiainana\n\n\tVoninahitra anie ho an'ny Trinité Masina\n\tRay sy Zanaka ary Fanahy Masina iray ihany\n\tAndriamanitra tokana nefa telo izay miasa aminay\n\tHoderainay mandrakizay, Trinite Masina o\n\nRy Fanahy Masina, loharanon'aina sy hazavana\nIanao no mampiray sy mampahery ny Eglizy\nTariho izahay hanatanteraka ny Tenin'ny Tompo\nAry ataovy tempolinao velona ny fiainanay\n\n\tVoninahitra anie ho an'ny Trinité Masina\n\tRay sy Zanaka ary Fanahy Masina iray ihany\n\tAndriamanitra tokana nefa telo izay miasa aminay\n\tHoderainay mandrakizay, Trinite Masina o",
+            "author": "Rindra Léon",
+            "year": 2026,
+            "category": "Ballad"
+        },
+        {
+            "id": 47,
+            "title": "MPIANDRY ONDRY TSARA",
+            "lyrics": "Ianao no mpiandry ondry tsara, Tompo o\nMiantso anay amin'ny anaranay tsirairay\nTsy avelanao ho very an'efitra izahay\n Fa tarihinao amin'ny lalana mahitsy\nEo anilanao izahay tsy matahotra intsony\n\n\tRy Jesoa mpiandry ondry tsara\n\tIanao no fiainanay sy hazavanay\n\tEnto an-tsandrinao sy ao am-ponao izahay\n\tArovy sy tahio mandrakizay\n\tFa anao izahay, ondry fiandrinao\n\nRehefa reraka sy osa izahay\nEo an-tsandrinao no iankinanay\nRaha sendra loza sy haizina izahay\nNy feonao no manome toky sy hery\nNy fitiavanao no miaro sy manavotra anay\n\n\tRy Jesoa mpiandry ondry tsara\n\tIanao no fiainanay sy hazavanay\n\tEnto an-tsandrinao sy ao am-ponao izahay\n\tArovy sy tahio mandrakizay\n\tFa anao izahay, ondry fiandrinao",
+            "author": "Rindra Léon",
+            "year": 2026,
+            "category": "Ballad"
+        }
+    ]
+}
