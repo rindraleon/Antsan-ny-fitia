@@ -1,0 +1,243 @@
+{
+  "collection": {
+    "title": "PAROASY MD FRANÇOIS D'ASSISE TSARARIVOTRA AMBALAVAO",
+    "motto": "Atsika ro iraika. (1Kor 12,21)",
+    "choir": "CHORALE ANTSAN'NY FITIA",
+    "choirMotto": "Ny feo nomenao anay no entinay midera ny Anaranao ry Ray be fitiavana.",
+    "date": "15 Février 2026",
+    "location": "Ambalavao, Madagascar"
+  },
+  "songs": [
+    {
+      "id": 1,
+      "title": "TANORANAO",
+      "titleStyle": {
+        "fontSize": "24px",
+        "fontWeight": "bold",
+        "color": "#1a5d1a",
+        "fontFamily": "Georgia, serif"
+      },
+      "composer": "Rindra Léon",
+      "compositionYear": 2021,
+      "verses": [
+        {
+          "type": "intro",
+          "text": "'Ndreto izahay tanoranao ry Ray\nTsy hisaraka fa ho iray mandrakizay\nHanandratra ny feo, hidera ny Anaranao\nHitory an-kira ireo hafatrao",
+          "style": {
+            "fontStyle": "normal",
+            "fontSize": "14px"
+          }
+        },
+        {
+          "type": "chorus",
+          "text": "Mba tahionao ry Tompo o\n'Ty asa fitoriana ataonay\nMba hamokatra amin'ireo zanakao\nIreo teny soa zay ambaranay",
+          "style": {
+            "fontStyle": "italic",
+            "fontSize": "14px",
+            "fontWeight": "bold",
+            "color": "#333333"
+          }
+        },
+        {
+          "type": "verse",
+          "number": 2,
+          "text": "Ny feo nomenao ho anay ry Ray\nNo entinay hidera ny Anaranao\nKana sarotra aza ny lalana'zay hizoranay\nDia matoky fa eo ianao mpiaro anay",
+          "style": {
+            "fontSize": "14px",
+            "lineHeight": "1.6"
+          }
+        },
+        {
+          "type": "chorus",
+          "text": "Mba tahionao ry Tompo o\n'Ty asa fitoriana ataonay\nMba hamokatra amin'ireo zanakao\nIreo teny soa zay ambaranay",
+          "style": {
+            "fontStyle": "italic",
+            "fontSize": "14px",
+            "fontWeight": "bold"
+          }
+        }
+      ],
+      "pageNumber": 1
+    },
+    {
+      "id": 24,
+      "title": "ANTSAN'NY FITIA",
+      "titleStyle": {
+        "fontSize": "24px",
+        "fontWeight": "bold",
+        "color": "#1a5d1a",
+        "fontFamily": "Georgia, serif"
+      },
+      "composer": "Rindra Léon",
+      "compositionYear": 2025,
+      "meaning": {
+        "title": "Choir Name Song",
+        "description": "Hymn celebrating love (fitia) as the expression of God's love and the charter of the choir"
+      },
+      "verses": [
+        {
+          "type": "verse",
+          "number": 1,
+          "text": "Ny fitiavana Anao ry Ray no mampivory anay\nHidera sy hankalaza ny voninahitrao\nNantsoin'ny fitiavana ka mitambatra ho iray\nHanandram-peo hidera ny Anaranao",
+          "style": {
+            "fontSize": "14px",
+            "lineHeight": "1.6"
+          }
+        },
+        {
+          "type": "chorus",
+          "text": "Hiantsa izahay, ho an'ny voninahitrao\nHihira izahay, ho fitiavana Anao\nAntsan'ny Fitia, no anarana entinay\nHo entina hankalaza sy hanompoana Anao",
+          "style": {
+            "fontStyle": "italic",
+            "fontSize": "14px",
+            "fontWeight": "bold",
+            "color": "#1a5d1a"
+          }
+        },
+        {
+          "type": "verse",
+          "number": 2,
+          "text": "Ireo hafatra napetrakao no ho tohizanay\nNy Evanjely i Jesoa no ho torianay\nNy lalan'ny fitiavana no hizoranay\nHitorianay an-kira ireo hafatrao",
+          "style": {
+            "fontSize": "14px",
+            "lineHeight": "1.6"
+          }
+        },
+        {
+          "type": "prayer",
+          "text": "Ry Ray be fitiavana o mba tahio re zahay\nMasina Maria reny o, tantano izahay\nRy masindahy Fransoa o, mivavaha ho anay\nRy Mb Cecile o, arovy koa zahay",
+          "style": {
+            "fontSize": "13px",
+            "fontStyle": "italic",
+            "color": "#555555"
+          }
+        }
+      ],
+      "pageNumber": 24,
+      "significance": "This is the choir's identity song, reflecting its mission and commitment"
+    },
+    {
+      "id": 45,
+      "title": "TRINITE MASINA",
+      "titleStyle": {
+        "fontSize": "24px",
+        "fontWeight": "bold",
+        "color": "#1a5d1a",
+        "fontFamily": "Georgia, serif"
+      },
+      "composer": "Rindra Léon",
+      "compositionYear": 2026,
+      "compositionMonth": "February",
+      "theme": "Holy Trinity",
+      "verses": [
+        {
+          "type": "verse",
+          "dedicatedTo": "God the Father",
+          "text": "Ry Ray Masina, loharanon'aina sy hazavana,\nIanao mpahary izao tontolo sy ny olombelona.\nNy Teninao sy ny sitraponao no mitari-dalana anay,\nAry ny fitiavanao no iankinanay mandrakizay.",
+          "style": {
+            "fontSize": "14px",
+            "lineHeight": "1.6"
+          }
+        },
+        {
+          "type": "chorus",
+          "text": "Voninahitra anie ho an'ny Trinite Masina,\nRay sy Zanaka ary Fanahy Masina iray ihany.\nAndriamanitra tokana nefa telo Izay miasa ao aminay,\nHoderainay mandrakizay, Trinite Masina ô.",
+          "style": {
+            "fontStyle": "italic",
+            "fontSize": "14px",
+            "fontWeight": "bold",
+            "color": "#1a5d1a"
+          }
+        },
+        {
+          "type": "verse",
+          "dedicatedTo": "God the Son",
+          "text": "Ry Jesoa Kristy, Zanaka Tokana sy Mpamonjy anay,\nTenin'ny Ray tonga nofo ho famonjena izao tontolo izao.\nNandresy ny fahotana sy ny fahafatesana Ianao,\nKa Ianao no Lalana sy Fiainana mandrakizay.",
+          "style": {
+            "fontSize": "14px",
+            "lineHeight": "1.6"
+          }
+        },
+        {
+          "type": "verse",
+          "dedicatedTo": "God the Holy Spirit",
+          "text": "Ry Fanahy Masina, hery sy fofon'aina avy any ambony,\nIanao no mampiray sy mampahery ny Eglizin'Andriamanitra.\nTariho izahay hanatanteraka ny Tenin'ny Tompo,\nAry ataovy tempolinao velona ny fiainanay.",
+          "style": {
+            "fontSize": "14px",
+            "lineHeight": "1.6"
+          }
+        },
+        {
+          "type": "finalChorus",
+          "text": "Voninahitra anie ho an'ny Trinite Masina,\nRay sy Zanaka ary Fanahy Masina iray ihany.\nAndriamanitra tokana nefa telo Izay miasa ao aminay,\nAnkehitriny sy mandrakizay, Amena, Amena!",
+          "style": {
+            "fontStyle": "italic",
+            "fontSize": "14px",
+            "fontWeight": "bold",
+            "color": "#1a5d1a"
+          }
+        }
+      ],
+      "pageNumber": 45,
+      "liturgicalTheme": "Trinitarian theology in Malagasy tradition"
+    }
+  ],
+  "styleGuide": {
+    "titleFormatting": {
+      "font": "Georgia, serif",
+      "fontSize": "24px",
+      "fontWeight": "bold",
+      "color": "#1a5d1a",
+      "textAlignment": "center",
+      "marginBottom": "10px"
+    },
+    "chorusFormatting": {
+      "fontStyle": "italic",
+      "fontSize": "14px",
+      "fontWeight": "bold",
+      "color": "#333333",
+      "marginLeft": "20px",
+      "borderLeft": "4px solid #1a5d1a"
+    },
+    "verseFormatting": {
+      "fontSize": "14px",
+      "lineHeight": "1.6",
+      "marginBottom": "15px"
+    },
+    "composerInfo": {
+      "fontSize": "12px",
+      "fontStyle": "italic",
+      "color": "#666666",
+      "marginTop": "10px"
+    },
+    "pageNumber": {
+      "fontSize": "11px",
+      "color": "#999999",
+      "textAlignment": "right"
+    }
+  },
+  "metadata": {
+    "totalSongs": 45,
+    "language": "Malagasy",
+    "dialects": ["Standard Malagasy", "Highland Malagasy"],
+    "themes": [
+      "Prayer and devotion",
+      "God's love",
+      "Church unity",
+      "Christmas",
+      "Easter",
+      "Trinity",
+      "Repentance and forgiveness",
+      "Faith and trust",
+      "Social concerns",
+      "Mary veneration"
+    ],
+    "composersRepresented": [
+      "Rindra Léon",
+      "Sambany Yves",
+      "Isidore",
+      "Sitraka",
+      "Rija"
+    ]
+  }
+}

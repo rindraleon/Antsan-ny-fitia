@@ -384,68 +384,130 @@
             "year":2026,
             "category":"Ballad"
         },
-
         {
             "id": 49,
-  "title": "Fiadananao Tompo ô",
-  "author":"Rindra Léon",
-  "year":2026,
-  "category": "Afrobeats",
-  "lyrics": [
-    {
-      "type": "verse",
-      "number": 1,
-      "lyrics": [
-        "Tompo ô, mijery anay ianao",
-        "Ao anatin’ny tabataba sy ny ady",
-        "Maniry fiadanana ny fonay",
-        "Fa tsy mahita fitsaharana izahay",
-        "",
-        "Misy ratra tsy lazainay am-bava",
-        "Misy ranomaso miafina ao anaty",
-        "Fa mbola miantehitra Aminao",
-        "Satria Ianao no loharanon’ny fiainana"
-      ]
-    },
-    {
-      "type": "chorus",
-      "lyrics": [
-        "Fiadanana avy Aminao, Tompo ô",
-        "Arotsahy ao am-ponay izao",
-        "Aoka hihena ny tahotra sy ny hatezerana",
-        "Ka hisy fitiavana vaovao",
-        "Fiadanana avy Aminao, Jesoa ô",
-        "Ianao no lalana sy fahazavana",
-        "Ampianaro izahay hifamela heloka",
-        "Ka hiaina ao Aminao mandrakizay"
-      ]
-    },
-    {
-      "type": "verse",
-      "number": 2,
-      "lyrics": [
-        "Rehefa maizina ny lalana aleha",
-        "Ary toa tsy misy antenaina intsony",
-        "Ny Teninao no hazavana",
-        "Manazava ny fanahy torovana",
-        "Ampianaro izahay hihavana",
-        "Hiala amin’ny fankahalana sy ady",
-        "Ka hanorina tontolo vaovao",
-        "Feno fitiavana sy fahamarinana"
-      ]
-    },
-    {
-      "type": "chorus",
-      "lyrics": [
-        "Fiadanana avy Aminao, Tompo ô",
-        "Arotsahy ao am-ponay izao",
-        "Aoka hihena ny tahotra sy ny hatezerana",
-        "Ka hisy fitiavana vaovao",
-        "Fiadanana avy Aminao, Jesoa ô",
-        "Ianao no Mpanjakan’ny fiadanana",
-        "Avelao izahay ho vavolombelona",
-        "Ny Fitiavanao tsy mety ritra"
-      ]
-    }
+            "title": "MATOKY ANAO, ANDRIAMANITRA MAHERY",
+            "language": "Malagasy",
+            
+            "author":"Rindra Léon",
+            "category":"Ballad",
+            "year":2026,
+            "lyrics": [
+                {
+                "type": "verse",
+                "number": 1,
+                
+                "lyrics": [
+                    "Rehefa maizina ny lalako, Tompo ô,",
+                    "Ianao no hazavako sy heriko.",
+                    "Ny tananao no mitantana ahy,",
+                    "Ka matoky Anao mandrakariva aho."
+                ]
+                },
+                {
+                "type": "chorus",
+                
+                "lyrics": [
+                    "Matoky Anao, Andriamanitra Mahery!",
+                    "Ianao no mandresy ny tahotra rehetra.",
+                    "Ny fahasoavanao no hery iainako,",
+                    "Hidera Anao mandrakizay aho."
+                ]
+                },
+                {
+                "type": "verse",
+                "number": 2,
+                
+                "lyrics": [
+                    "Rehefa reraka ny foko sy ny saiko,",
+                    "Ny Fanahinao no mampahery ahy.",
+                    "Ny Teninao no fanilo mitarika,",
+                    "Mitondra fiadanana sy fanantenana."
+                ]
+                },
+                {
+                "type": "bridge",
+                
+                "lyrics": [
+                    "Apetrako Aminao ny ahiahiko rehetra,",
+                    "Fa Ianao no Ray be fitiavana.",
+                    "Jesoa ô, Ianao no antenaiko,",
+                    "Hatoky Anao mandrakizay aho."
+                ]
+                },
+                {
+                "type": "final_chorus",
+                "lyrics": [
+                    "Matoky Anao, Andriamanitra Mahery!",
+                    "Tsy misy tsy hainao atao.",
+                    "Ianao irery no Tompo sy Mpanjaka,",
+                    "Haleloia! Amen! Hidera Anao aho."
+                ]
+                }
+            ]
+        },
+        {
+            "id":50,
+            "author":"Rindra Léon",
+            "category":"Afrobeats",
+            "year":2026,
+            "title": "Fiadananao Tompo",
+            "lyrics": [
+                {
+                "type": "verse",
+                "number": 1,
+                "lyrics": [
+                    "Tompo ô, mijery anay ianao",
+                    "Ao anatin’ny tabataba sy ny ady",
+                    "Maniry fiadanana ny fonay",
+                    "Fa tsy mahita fitsaharana izahay",
+                    "",
+                    "Misy ratra tsy lazainay am-bava",
+                    "Misy ranomaso miafina ao anaty",
+                    "Fa mbola miantehitra Aminao",
+                    "Satria Ianao no loharanon’ny fiainana"
+                ]
+                },
+                {
+                "type": "chorus",
+                "lyrics": [
+                    "Fiadanana avy Aminao, Tompo ô",
+                    "Arotsahy ao am-ponay izao",
+                    "Aoka hihena ny tahotra sy ny hatezerana",
+                    "Ka hisy fitiavana vaovao",
+                    "Fiadanana avy Aminao, Jesoa ô",
+                    "Ianao no lalana sy fahazavana",
+                    "Ampianaro izahay hifamela heloka",
+                    "Ka hiaina ao Aminao mandrakizay"
+                ]
+                },
+                {
+                "type": "verse",
+                "number": 2,
+                "lyrics": [
+                    "Rehefa maizina ny lalana aleha",
+                    "Ary toa tsy misy antenaina intsony",
+                    "Ny Teninao no hazavana",
+                    "Manazava ny fanahy torovana",
+                    "Ampianaro izahay hihavana",
+                    "Hiala amin’ny fankahalana sy ady",
+                    "Ka hanorina tontolo vaovao",
+                    "Feno fitiavana sy fahamarinana"
+                ]
+                },
+                {
+                "type": "chorus",
+                "lyrics": [
+                    "Fiadanana avy Aminao, Tompo ô",
+                    "Arotsahy ao am-ponay izao",
+                    "Aoka hihena ny tahotra sy ny hatezerana",
+                    "Ka hisy fitiavana vaovao",
+                    "Fiadanana avy Aminao, Jesoa ô",
+                    "Ianao no Mpanjakan’ny fiadanana",
+                    "Avelao izahay ho vavolombelona",
+                    "Ny Fitiavanao tsy mety ritra"
+                ]
+            }
+        }
     ]
 }
