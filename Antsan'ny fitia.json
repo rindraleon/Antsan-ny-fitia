@@ -392,123 +392,17 @@
             "author":"Rindra Léon",
             "category":"Ballad",
             "year":2026,
-            "lyrics": [
-                {
-                "type": "verse",
-                "number": 1,
-                
-                "lyrics": [
-                    "Rehefa maizina ny lalako, Tompo ô,",
-                    "Ianao no hazavako sy heriko.",
-                    "Ny tananao no mitantana ahy,",
-                    "Ka matoky Anao mandrakariva aho."
-                ]
-                },
-                {
-                "type": "chorus",
-                
-                "lyrics": [
-                    "Matoky Anao, Andriamanitra Mahery!",
-                    "Ianao no mandresy ny tahotra rehetra.",
-                    "Ny fahasoavanao no hery iainako,",
-                    "Hidera Anao mandrakizay aho."
-                ]
-                },
-                {
-                "type": "verse",
-                "number": 2,
-                
-                "lyrics": [
-                    "Rehefa reraka ny foko sy ny saiko,",
-                    "Ny Fanahinao no mampahery ahy.",
-                    "Ny Teninao no fanilo mitarika,",
-                    "Mitondra fiadanana sy fanantenana."
-                ]
-                },
-                {
-                "type": "bridge",
-                
-                "lyrics": [
-                    "Apetrako Aminao ny ahiahiko rehetra,",
-                    "Fa Ianao no Ray be fitiavana.",
-                    "Jesoa ô, Ianao no antenaiko,",
-                    "Hatoky Anao mandrakizay aho."
-                ]
-                },
-                {
-                "type": "final_chorus",
-                "lyrics": [
-                    "Matoky Anao, Andriamanitra Mahery!",
-                    "Tsy misy tsy hainao atao.",
-                    "Ianao irery no Tompo sy Mpanjaka,",
-                    "Haleloia! Amen! Hidera Anao aho."
-                ]
-                }
-            ]
+            "lyrics": "1- Rehefa maizina ny lalako, Tompo ô,\nsy ny fahavalo manenjika ahy,\nTsy ho kivy aho, fa Ianao no hianteherako,\nNy tananao no mitantana ahy, ka matoky Anao mandrakariva aho.\n\n\t\tMatoky Anao, Andriamanitra Mahery!\n\t\tIanao no mandresy ny tahotra rehetra.\n\t\tNy fahasoavanao no hery iainako,\n\t\tHidera Anao mandrakizay aho.\n\n2- Rehefa reraka ny foko sy ny saiko,\nNy Fanahinao no mampahery ahy.\nNy Teninao no fanilo mitarika,\nMitondra fiadanana sy fanantenana.\n\n\t\tMatoky Anao, Andriamanitra Mahery!\n\t\tIanao no mandresy ny tahotra rehetra.\n\t\tNy fahasoavanao no hery iainako,\n\t\tHidera Anao mandrakizay aho.\n\n\t\tApetrako Aminao ny ahiahiko rehetra,\n\t\tFa Ianao no Ray be fitiavana.\n\t\tJesoa ô, Ianao no antenaiko,\n\t\tHatoky Anao mandrakizay aho.\n\n\t\tMatoky Anao, Andriamanitra Mahery!\n\t\tIanao no mandresy ny tahotra rehetra.\n\t\tNy fahasoavanao no hery iainako,\n\t\tHidera Anao mandrakizay aho."
+            
         },
         {
             "id":50,
             "author":"Rindra Léon",
             "category":"Afrobeats",
             "year":2026,
-            "title": "Fiadananao Tompo",
-            "lyrics": [
-                {
-                "type": "verse",
-                "number": 1,
-                "lyrics": [
-                    "Tompo ô, mijery anay ianao",
-                    "Ao anatin’ny tabataba sy ny ady",
-                    "Maniry fiadanana ny fonay",
-                    "Fa tsy mahita fitsaharana izahay",
-                    "",
-                    "Misy ratra tsy lazainay am-bava",
-                    "Misy ranomaso miafina ao anaty",
-                    "Fa mbola miantehitra Aminao",
-                    "Satria Ianao no loharanon’ny fiainana"
-                ]
-                },
-                {
-                "type": "chorus",
-                "lyrics": [
-                    "Fiadanana avy Aminao, Tompo ô",
-                    "Arotsahy ao am-ponay izao",
-                    "Aoka hihena ny tahotra sy ny hatezerana",
-                    "Ka hisy fitiavana vaovao",
-                    "Fiadanana avy Aminao, Jesoa ô",
-                    "Ianao no lalana sy fahazavana",
-                    "Ampianaro izahay hifamela heloka",
-                    "Ka hiaina ao Aminao mandrakizay"
-                ]
-                },
-                {
-                "type": "verse",
-                "number": 2,
-                "lyrics": [
-                    "Rehefa maizina ny lalana aleha",
-                    "Ary toa tsy misy antenaina intsony",
-                    "Ny Teninao no hazavana",
-                    "Manazava ny fanahy torovana",
-                    "Ampianaro izahay hihavana",
-                    "Hiala amin’ny fankahalana sy ady",
-                    "Ka hanorina tontolo vaovao",
-                    "Feno fitiavana sy fahamarinana"
-                ]
-                },
-                {
-                "type": "chorus",
-                "lyrics": [
-                    "Fiadanana avy Aminao, Tompo ô",
-                    "Arotsahy ao am-ponay izao",
-                    "Aoka hihena ny tahotra sy ny hatezerana",
-                    "Ka hisy fitiavana vaovao",
-                    "Fiadanana avy Aminao, Jesoa ô",
-                    "Ianao no Mpanjakan’ny fiadanana",
-                    "Avelao izahay ho vavolombelona",
-                    "Ny Fitiavanao tsy mety ritra"
-                ]
-            }
-            ]
+            "title": "FIADANANAO TOMPO O",
+            "lyrics": "1- Tompo ô, mijery anay ianao\nAo anatin’ny tabataba sy ny ady\nManiry fiadanana ny fonay\nFa tsy mahita fitsaharana izahay\nMisy ratra tsy lazainay am-bava\n\t\tMisy ranomaso miafina ao anaty\n\t\tFa mbola miantehitra Aminao\n\t\tSatria Ianao no loharanon’ny fiainana\n\nFiadanana avy Aminao, Tompo ô\nArotsahy ao am-ponay izao\nAoka hihena ny tahotra sy ny hatezerana\nKa hisy fitiavana vaovao\nFiadanana avy Aminao, Jesoa ô\nIanao no lalana sy fahazavana\nAmpianaro izahay hifamela heloka\nKa hiaina ao Aminao mandrakizay\n\n2- Rehefa maizina ny lalana aleha\nAry toa tsy misy antenaina intsony\nNy Teninao no hazavana\nManazava ny fanahy torovana\n\t\tAmpianaro izahay hihavana\n\t\tHiala amin’ny fankahalana sy ady\n\t\tKa hanorina tontolo vaovao\n\t\tFeno fitiavana sy fahamarinana\n\nFiadanana avy Aminao, Tompo ô\nArotsahy ao am-ponay izao\nAoka hihena ny tahotra sy ny hatezerana\nKa hisy fitiavana vaovao\n\t\tFiadanana avy Aminao, Jesoa ô\n\t\tIanao no Mpanjakan’ny fiadanana\n\t\tAvelao izahay ho vavolombelona\n\t\tNy Fitiavanao tsy mety ritra"
+            
         }
         
     ]
