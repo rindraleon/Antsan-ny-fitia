@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+# Simplified wrapper – use system gradle in CI
+exec gradle "$@"

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "intro-1",
+    "title": "Bienvenue dans le Lecteur GitHub",
+    "subtitle": "Une application Flutter qui lit vos textes depuis GitHub",
+    "content": "# Bienvenue !\n\nCeci est un **exemple de contenu** chargé depuis GitHub.\n\n## Fonctionnalités\n\n- ✅ Lecture JSON / Markdown\n- ✅ Recherche instantanée\n- ✅ Catégories\n- ✅ Mode sombre\n\n> Vos textes sont stockés sur GitHub, l'app les affiche nativement.",
+    "category": "Guide",
+    "author": "Équipe App",
+    "date": "2026-07-07",
+    "image": "https://picsum.photos/600/300?1"
+  },
+  {
+    "id": "chap-2",
+    "title": "Comment structurer votre repo",
+    "subtitle": "Organisez vos fichiers JSON simplement",
+    "content": "## Structure recommandée\n\n```\nvotre-repo/\n  data/\n    articles.json\n    guide.json\n    livre_1.md\n```\n\nChaque fichier JSON peut contenir un tableau d'articles.",
+    "category": "Guide",
+    "author": "Équipe App",
+    "date": "2026-07-06",
+    "image": "https://picsum.photos/600/300?2"
+  },
+  {
+    "id": "story-1",
+    "title": "Exemple d'histoire",
+    "subtitle": "Il était une fois une app Flutter...",
+    "content": "### Chapitre 1\n\nIl était une fois une application qui lisait du contenu depuis GitHub.\n\nElle était **rapide**, **belle**, et **100% offline-ready** avec cache.\n\nFin.",
+    "category": "Histoire",
+    "author": "Auteur Test",
+    "date": "2026-07-05",
+    "image": ""
+  }
+]
