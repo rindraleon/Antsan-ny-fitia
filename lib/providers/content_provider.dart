@@ -166,7 +166,7 @@ class ContentProvider extends ChangeNotifier {
     // Vérifie si le repo a été mis à jour
     try {
       final lastCommit = await githubService.getLastCommitDate();
-      final lastSync = await OfflineCacheService.getLastCommitDate();
+      final lastSync = await OfflineCacheService.getLastSyncDate();
       if (lastCommit != null && lastSync != null && lastCommit.isAfter(lastSync)) {
         await loadContent(forceRefresh: true, backgroundSync: false);
         return;

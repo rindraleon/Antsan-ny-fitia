@@ -232,10 +232,10 @@ class _DetailScreenState extends State<DetailScreen> {
                             fontWeight: FontWeight.w400,
                           ),
                         ),
-                        const SizedBox(height: 40),
+                        const SizedBox(height: 20),
                         Center(
                           child: Text(
-                            '— Fin —\nChorale Antsan\'ny Fitia',
+                            '\nChorale Antsan\'ny Fitia Tsararivotra',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 12,

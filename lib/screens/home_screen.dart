@@ -244,7 +244,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       // Debug info
                       Center(
                         child: Text(
-                          '${provider.totalCount} chants • GitHub sync actif',
+                          '${provider.totalCount} chants ',
                           style: TextStyle(fontSize: 11, color: theme.hintColor),
                         ),
                       ),
@@ -613,14 +613,14 @@ class _SettingsSheetState extends State<_SettingsSheet> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Antsa ny Fitia – v2.4 offline', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13)),
+                  const Text('Developpé par Rindra Leon', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13)),
                   const SizedBox(height: 4),
-                  const SelectableText('github.com/rindraleon/Antsan-ny-fitia', style: TextStyle(fontSize: 12)),
-                  const SizedBox(height: 6),
-                  Text(
-                    '• Cache double: SharedPreferences + fichier\n• Chargement instantané hors-ligne\n• Sync arrière-plan auto\n• ${provider.totalCount} chants • ${AppThemeType.values.length} thèmes\n• Recherche full-text • Favoris • PDF • Auto-scroll',
-                    style: TextStyle(fontSize: 11, color: Theme.of(context).hintColor),
-                  ),
+                  // const SelectableText('github.com/rindraleon/Antsan-ny-fitia', style: TextStyle(fontSize: 12)),
+                  // const SizedBox(height: 6),
+                  // Text(
+                  //   '• Cache double: SharedPreferences + fichier\n• Chargement instantané hors-ligne\n• Sync arrière-plan auto\n• ${provider.totalCount} chants • ${AppThemeType.values.length} thèmes\n• Recherche full-text • Favoris • PDF • Auto-scroll',
+                  //   style: TextStyle(fontSize: 11, color: Theme.of(context).hintColor),
+                  // ),
                 ],
               ),
             ),
