@@ -160,7 +160,7 @@ class ThemeProvider extends ChangeNotifier {
         titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w600),
         iconTheme: const IconThemeData(color: Colors.white),
       ),
-      cardTheme: CardThemeData(
+      cardTheme: CardTheme(
         color: td.card,
         elevation: isDark ? 1 : 2,
         shadowColor: Colors.black12,
