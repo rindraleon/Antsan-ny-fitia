@@ -611,7 +611,7 @@ class _SettingsSheetState extends State<_SettingsSheet> {
                 border: Border.all(color: Theme.of(context).dividerColor.withOpacity(0.3)),
               ),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const Text('Developpé par Rindra Leon', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13)),
                   const SizedBox(height: 4),

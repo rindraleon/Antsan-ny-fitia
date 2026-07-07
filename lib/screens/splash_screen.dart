@@ -95,7 +95,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             const SizedBox(height: 12),
             Text(
-              'Synchronisation GitHub...',
+              'Chargement des chants...',
               style: TextStyle(color: Colors.grey.shade600, fontSize: 13),
             ),
           ],

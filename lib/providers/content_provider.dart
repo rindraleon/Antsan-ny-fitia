@@ -53,40 +53,61 @@ class ContentProvider extends ChangeNotifier {
 
   String _songKey(Song s) => '${s.id}-${s.title}';
 
-  // Charge d'abord le cache local (instantané), puis sync en arrière-plan
+  // Charge d'abord le bundle local (instantané, 100% offline), puis sync en arrière-plan
   Future<void> loadContent({bool forceRefresh = false, bool backgroundSync = true}) async {
     // 1. Charger préférences locales
     await _loadFavorites();
     await _loadFontSize();
 
-    // 2. Si pas forceRefresh, essayer cache d'abord
+    // 2. Essayer d'abord le bundle local (toujours disponible, pas besoin de réseau)
     if (!forceRefresh) {
-      final cached = await OfflineCacheService.loadCachedSongs();
-      if (cached.isNotEmpty) {
-        _items = cached;
+      final bundled = await _loadBundledSongs();
+      if (bundled.isNotEmpty) {
+        _items = bundled;
         _applyFilters();
         _isLoading = false;
         _error = null;
+        _isOffline = true; // Mode offline par défaut avec le bundle
         notifyListeners();
 
-        // Charger métadonnées cache
-        _lastSync = await OfflineCacheService.getLastSyncDate();
-        _cacheSizeBytes = await OfflineCacheService.getCacheSize();
+        // Pas de métadonnées de sync pour le bundle
+        _lastSync = null;
+        _cacheSizeBytes = 0;
 
-        // Puis sync en arrière-plan si activé
+        // Puis sync en arrière-plan si activé (pour mettre à jour depuis GitHub)
         if (backgroundSync) {
-          final autoSync = await OfflineCacheService.isAutoSyncEnabled();
-          if (autoSync) {
-            // lance sans bloquer l'UI
-            _backgroundSync();
-            return;
-          }
+          _backgroundSync();
         }
         return;
       }
     }
 
-    // 3. Sinon chargement réseau bloquant (1er lancement ou force)
+    // 3. Si forceRefresh ou bundle vide, essayer le cache
+    final cached = await OfflineCacheService.loadCachedSongs();
+    if (cached.isNotEmpty && !forceRefresh) {
+      _items = cached;
+      _applyFilters();
+      _isLoading = false;
+      _error = null;
+      _isOffline = true;
+      notifyListeners();
+
+      // Charger métadonnées cache
+      _lastSync = await OfflineCacheService.getLastSyncDate();
+      _cacheSizeBytes = await OfflineCacheService.getCacheSize();
+
+      // Puis sync en arrière-plan si activé
+      if (backgroundSync) {
+        final autoSync = await OfflineCacheService.isAutoSyncEnabled();
+        if (autoSync) {
+          _backgroundSync();
+          return;
+        }
+      }
+      return;
+    }
+
+    // 4. Sinon chargement réseau bloquant (1er lancement ou force refresh)
     _isLoading = true;
     _error = null;
     notifyListeners();
@@ -102,28 +123,19 @@ class ContentProvider extends ChangeNotifier {
       _lastSync = DateTime.now();
       _cacheSizeBytes = await OfflineCacheService.getCacheSize();
     } catch (e) {
-      // Échec réseau → fallback cache
-      final cached = await OfflineCacheService.loadCachedSongs();
-      if (cached.isNotEmpty) {
-        _items = cached;
+      // Échec réseau → utiliser le bundle local
+      final bundled = await _loadBundledSongs();
+      if (bundled.isNotEmpty) {
+        _items = bundled;
         _applyFilters();
         _isOffline = true;
         _error = null;
+        // sauvegarde le bundle en cache pour la prochaine fois
+        await OfflineCacheService.saveSongs(_items);
       } else {
-        // Fallback ultime : bundle assets local
-        final bundled = await _loadBundledSongs();
-        if (bundled.isNotEmpty) {
-          _items = bundled;
-          _applyFilters();
-          _isOffline = true;
-          _error = null;
-          // sauvegarde le bundle en cache pour la prochaine fois
-          await OfflineCacheService.saveSongs(_items);
-        } else {
-          _error = e.toString();
-          _items = [];
-          _filteredItems = [];
-        }
+        _error = 'Impossible de charger les chants. Vérifiez votre connexion internet.';
+        _items = [];
+        _filteredItems = [];
       }
     } finally {
       _isLoading = false;
