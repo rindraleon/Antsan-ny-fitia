@@ -223,25 +223,6 @@ class _DetailScreenState extends State<DetailScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // meta
-                        Wrap(
-                          spacing: 12,
-                          runSpacing: 4,
-                          children: [
-                            Chip(
-                              label: Text(widget.song.category, style: const TextStyle(fontSize: 12)),
-                              visualDensity: VisualDensity.compact,
-                              backgroundColor: primary.withOpacity(0.1),
-                              side: BorderSide.none,
-                            ),
-                            if (widget.song.year != null)
-                              Text('${widget.song.year}',
-                                  style: TextStyle(color: Theme.of(context).hintColor, fontSize: 13)),
-                            Text(widget.song.author,
-                                style: TextStyle(color: Theme.of(context).hintColor, fontSize: 13)),
-                          ],
-                        ),
-                        const SizedBox(height: 18),
                         Text(
                           widget.song.lyrics,
                           style: TextStyle(

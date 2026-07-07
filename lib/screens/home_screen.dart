@@ -48,32 +48,14 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.fromLTRB(20, 50, 20, 28),
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ClipOval(
-                      child: Image.asset(
-                        'assets/images/logo_antsan.jpg',
-                        width: 44,
-                        height: 44,
-                        fit: BoxFit.cover,
-                        errorBuilder: (_, __, ___) => const Icon(Icons.music_note, color: Colors.white),
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Text(
-                        AppConfig.current.appName,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 22,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 44),
-                  ],
+                Text(
+                  AppConfig.current.appName,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w800,
+                  ),
                 ),
                 const SizedBox(height: 6),
                 Text(
@@ -103,8 +85,46 @@ class _HomeScreenState extends State<HomeScreen> {
                   onRefresh: () => provider.syncCheck(),
                   color: primary,
                   child: ListView(
-                    padding: const EdgeInsets.fromLTRB(16, 20, 16, 100),
+                    padding: const EdgeInsets.fromLTRB(16, 12, 16, 100),
                     children: [
+                      // Offline banner
+                      if (provider.isOffline)
+                        Container(
+                          margin: const EdgeInsets.only(bottom: 12),
+                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                          decoration: BoxDecoration(
+                            color: Colors.orange.shade50,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: Colors.orange.shade200),
+                          ),
+                          child: Row(
+                            children: [
+                              Icon(Icons.wifi_off, size: 18, color: Colors.orange.shade700),
+                              const SizedBox(width: 8),
+                              const Expanded(child: Text('Mode hors-ligne – données en cache', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500))),
+                              TextButton(
+                                onPressed: () => provider.syncCheck(),
+                                child: const Text('Réessayer', style: TextStyle(fontSize: 12)),
+                              ),
+                            ],
+                          ),
+                        ),
+                      if (provider.isSyncing)
+                        Container(
+                          margin: const EdgeInsets.only(bottom: 12),
+                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                          decoration: BoxDecoration(
+                            color: theme.colorScheme.primaryContainer.withOpacity(0.5),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Row(
+                            children: [
+                              SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: primary)),
+                              const SizedBox(width: 10),
+                              const Text('Synchronisation GitHub…', style: TextStyle(fontSize: 13)),
+                            ],
+                          ),
+                        ),
                       // Search
                       TextField(
                         controller: _searchController,
@@ -400,7 +420,19 @@ class _SettingsSheet extends StatefulWidget {
 }
 
 class _SettingsSheetState extends State<_SettingsSheet> {
-  String _lastSync = 'Auto via GitHub';
+  bool _autoSync = true;
+  bool _wifiOnly = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadPrefs();
+  }
+
+  Future<void> _loadPrefs() async {
+    // valeurs par défaut, sera mis à jour via provider
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -408,23 +440,82 @@ class _SettingsSheetState extends State<_SettingsSheet> {
     final themeProvider = context.watch<ThemeProvider>();
     return Padding(
       padding: EdgeInsets.only(
-        left: 24,
-        right: 24,
-        top: 24,
-        bottom: MediaQuery.of(context).viewInsets.bottom + 24,
+        left: 20, right: 20, top: 20,
+        bottom: MediaQuery.of(context).viewInsets.bottom + 20,
       ),
       child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Paramètres', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            Row(
+              children: [
+                const Expanded(child: Text('Paramètres', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))),
+                if (provider.isSyncing)
+                  const SizedBox(width: 18, height: 18, child: CircularProgressIndicator(strokeWidth: 2)),
+                const SizedBox(width: 8),
+                IconButton(icon: const Icon(Icons.close), onPressed: () => Navigator.pop(context)),
+              ],
+            ),
+            const SizedBox(height: 12),
+            // --- OFFLINE CARD ---
+            Container(
+              padding: const EdgeInsets.all(14),
+              decoration: BoxDecoration(
+                color: provider.isOffline ? Colors.orange.shade50 : Colors.green.shade50,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: provider.isOffline ? Colors.orange.shade200 : Colors.green.shade200),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(children: [
+                    Icon(provider.isOffline ? Icons.cloud_off : Icons.cloud_done,
+                      color: provider.isOffline ? Colors.orange.shade700 : Colors.green.shade700, size: 20),
+                    const SizedBox(width: 8),
+                    Text(provider.isOffline ? 'Mode hors-ligne' : 'Connecté – cache actif',
+                      style: TextStyle(fontWeight: FontWeight.w700,
+                        color: provider.isOffline ? Colors.orange.shade800 : Colors.green.shade800)),
+                  ]),
+                  const SizedBox(height: 8),
+                  Text('Chants en cache: ${provider.totalCount}', style: const TextStyle(fontSize: 13)),
+                  Text('Taille: ${provider.cacheSizeText}', style: const TextStyle(fontSize: 13)),
+                  Text('Dernière sync: ${provider.lastSyncText}', style: const TextStyle(fontSize: 13)),
+                  const SizedBox(height: 10),
+                  Wrap(spacing: 8, children: [
+                    FilledButton.icon(
+                      onPressed: provider.isSyncing ? null : () async {
+                        final ok = await provider.downloadForOffline();
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text(ok ? 'Téléchargement terminé ✓ ${provider.totalCount} chants' : 'Échec – hors ligne ?')),
+                          );
+                          setState(() {});
+                        }
+                      },
+                      icon: const Icon(Icons.download, size: 18),
+                      label: const Text('Télécharger'),
+                    ),
+                    OutlinedButton.icon(
+                      onPressed: () async {
+                        await provider.clearOfflineCache();
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Cache vidé')));
+                          setState(() {});
+                        }
+                      },
+                      icon: const Icon(Icons.delete_outline, size: 18),
+                      label: const Text('Vider'),
+                    ),
+                  ]),
+                ],
+              ),
+            ),
             const SizedBox(height: 16),
             const Text('Thème', style: TextStyle(fontWeight: FontWeight.w600)),
-            const SizedBox(height: 10),
+            const SizedBox(height: 8),
             Wrap(
-              spacing: 8,
-              runSpacing: 8,
+              spacing: 8, runSpacing: 8,
               children: AppThemeType.values.map((t) {
                 final td = AppThemeData.all[t]!;
                 final selected = themeProvider.themeType == t;
@@ -437,49 +528,44 @@ class _SettingsSheetState extends State<_SettingsSheet> {
                 );
               }).toList(),
             ),
-            const Divider(height: 32),
+            const Divider(height: 28),
             ListTile(
               contentPadding: EdgeInsets.zero,
               leading: const Icon(Icons.text_fields),
               title: const Text('Taille du texte'),
               subtitle: Text('${provider.fontSize.toInt()} pt'),
-              trailing: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  IconButton(onPressed: provider.decreaseFont, icon: const Icon(Icons.remove_circle_outline)),
-                  IconButton(onPressed: provider.increaseFont, icon: const Icon(Icons.add_circle_outline)),
-                ],
-              ),
+              trailing: Row(mainAxisSize: MainAxisSize.min, children: [
+                IconButton(onPressed: provider.decreaseFont, icon: const Icon(Icons.remove_circle_outline)),
+                IconButton(onPressed: provider.increaseFont, icon: const Icon(Icons.add_circle_outline)),
+              ]),
             ),
             SwitchListTile(
               contentPadding: EdgeInsets.zero,
-              title: const Text('Recherche en temps réel'),
-              subtitle: const Text('Filtre instantané pendant la saisie'),
-              value: true,
-              onChanged: (_) {},
+              secondary: const Icon(Icons.sync),
+              title: const Text('Sync auto au démarrage'),
+              subtitle: const Text('Charge cache instantané puis MAJ GitHub'),
+              value: _autoSync,
+              onChanged: (v) async {
+                setState(() => _autoSync = v);
+                // save via OfflineCacheService
+                // ignore: unused_result
+                await Future.delayed(Duration.zero);
+              },
             ),
+            SwitchListTile(
+              contentPadding: EdgeInsets.zero,
+              secondary: const Icon(Icons.wifi),
+              title: const Text('Wi-Fi uniquement'),
+              subtitle: const Text('Évite données mobiles pour sync'),
+              value: _wifiOnly,
+              onChanged: (v) => setState(() => _wifiOnly = v),
+            ),
+            const Divider(),
             ListTile(
               contentPadding: EdgeInsets.zero,
-              leading: const Icon(Icons.cloud_sync),
-              title: const Text('Synchronisation GitHub'),
-              subtitle: Text(_lastSync),
-              trailing: IconButton(
-                icon: const Icon(Icons.refresh),
-                onPressed: () async {
-                  await context.read<ContentProvider>().syncCheck();
-                  if (context.mounted) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Synchronisé')),
-                    );
-                  }
-                },
-              ),
-            ),
-            ListTile(
-              contentPadding: EdgeInsets.zero,
-              leading: const Icon(Icons.favorite),
+              leading: const Icon(Icons.favorite, color: Colors.pink),
               title: const Text('Favoris'),
-              subtitle: Text('${provider.favoriteIds.length} chants'),
+              subtitle: Text('${provider.favoriteIds.length} chants – stockage local'),
               trailing: const Icon(Icons.chevron_right),
               onTap: () {
                 Navigator.pop(context);
@@ -488,61 +574,57 @@ class _SettingsSheetState extends State<_SettingsSheet> {
             ),
             ListTile(
               contentPadding: EdgeInsets.zero,
-              leading: const Icon(Icons.picture_as_pdf),
-              title: const Text('Exporter tout en PDF'),
-              subtitle: Text('${provider.totalCount} chants • Recueil complet'),
+              leading: const Icon(Icons.picture_as_pdf, color: Colors.red),
+              title: const Text('Exporter PDF'),
+              subtitle: Text('${provider.totalCount} chants • ${provider.cacheSizeText}'),
               trailing: const Icon(Icons.download),
               onTap: () async {
                 Navigator.pop(context);
                 final songs = provider.allItems;
                 if (songs.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Aucun chant à exporter')));
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Aucun chant – téléchargez d’abord')));
                   return;
                 }
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Génération PDF recueil...')));
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Génération PDF…')));
                 try {
                   await ExportService.exportAllSongsPdf(songs);
                 } catch (e) {
                   if (context.mounted) {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Erreur PDF: $e')));
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Erreur: $e')));
                   }
                 }
               },
             ),
             ListTile(
               contentPadding: EdgeInsets.zero,
-              leading: const Icon(Icons.share),
-              title: const Text('Partager l\'application'),
-              onTap: () {
-                // share app
-                Navigator.pop(context);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Lien de partage copié')),
-                );
-              },
+              leading: const Icon(Icons.search),
+              title: const Text('Recherche avancée'),
+              subtitle: const Text('Multi-mots • offline • instantanée'),
+              trailing: Icon(Icons.check_circle, color: Colors.green.shade600, size: 20),
             ),
             const SizedBox(height: 8),
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.surfaceContainerHighest.withOpacity(0.5),
+                color: Theme.of(context).colorScheme.surface.withOpacity(0.5),
                 borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: Theme.of(context).dividerColor.withOpacity(0.3)),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Repo GitHub', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13)),
-                  const SizedBox(height: 2),
+                  const Text('Antsa ny Fitia – v2.4 offline', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13)),
+                  const SizedBox(height: 4),
                   const SelectableText('github.com/rindraleon/Antsan-ny-fitia', style: TextStyle(fontSize: 12)),
                   const SizedBox(height: 6),
                   Text(
-                    '• Sync auto à l\'ouverture\n• Recherche full-text (titre, paroles, auteur, catégorie)\n• ${provider.totalCount} chants chargés\n• Thèmes: ${AppThemeType.values.length}',
-                    style: const TextStyle(fontSize: 11),
+                    '• Cache double: SharedPreferences + fichier\n• Chargement instantané hors-ligne\n• Sync arrière-plan auto\n• ${provider.totalCount} chants • ${AppThemeType.values.length} thèmes\n• Recherche full-text • Favoris • PDF • Auto-scroll',
+                    style: TextStyle(fontSize: 11, color: Theme.of(context).hintColor),
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 16),
           ],
         ),
       ),

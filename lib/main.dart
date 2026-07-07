@@ -92,7 +92,7 @@ class AppThemeData {
 }
 
 class ThemeProvider extends ChangeNotifier {
-  AppThemeType _themeType = AppThemeType.green;
+  AppThemeType _themeType = AppThemeType.sepia;
   ThemeMode _mode = ThemeMode.light;
 
   AppThemeType get themeType => _themeType;
@@ -110,7 +110,7 @@ class ThemeProvider extends ChangeNotifier {
     if (t != null) {
       _themeType = AppThemeType.values.firstWhere(
         (e) => e.name == t,
-        orElse: () => AppThemeType.green,
+        orElse: () => AppThemeType.sepia,
       );
       notifyListeners();
     }
@@ -125,7 +125,7 @@ class ThemeProvider extends ChangeNotifier {
 
   void toggleDark() {
     if (_themeType == AppThemeType.dark) {
-      setTheme(AppThemeType.green);
+      setTheme(AppThemeType.sepia);
     } else {
       setTheme(AppThemeType.dark);
     }

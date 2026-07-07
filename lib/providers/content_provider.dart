@@ -1,7 +1,10 @@
+import 'dart:convert';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/song.dart';
 import '../services/github_service.dart';
+import '../services/offline_cache_service.dart';
 
 class ContentProvider extends ChangeNotifier {
   final GithubService githubService;
@@ -11,24 +14,34 @@ class ContentProvider extends ChangeNotifier {
   List<Song> _items = [];
   List<Song> _filteredItems = [];
   bool _isLoading = false;
+  bool _isSyncing = false;
   String? _error;
   String _searchQuery = '';
   String? _selectedCategory;
   bool _favoritesOnly = false;
+  bool _isOffline = false;
 
   // Favoris
-  final Set<String> _favoriteIds = {}; // "id-title" key
+  final Set<String> _favoriteIds = {};
   double _fontSize = 18.0;
+
+  // Stats offline
+  DateTime? _lastSync;
+  int _cacheSizeBytes = 0;
 
   List<Song> get items => _filteredItems;
   List<Song> get allItems => _items;
   bool get isLoading => _isLoading;
+  bool get isSyncing => _isSyncing;
   String? get error => _error;
   String get searchQuery => _searchQuery;
   String? get selectedCategory => _selectedCategory;
   bool get favoritesOnly => _favoritesOnly;
   double get fontSize => _fontSize;
   Set<String> get favoriteIds => _favoriteIds;
+  bool get isOffline => _isOffline;
+  DateTime? get lastSync => _lastSync;
+  int get cacheSizeBytes => _cacheSizeBytes;
 
   List<String> get categories {
     final cats = _items.map((e) => e.category).toSet().toList();
@@ -40,53 +53,164 @@ class ContentProvider extends ChangeNotifier {
 
   String _songKey(Song s) => '${s.id}-${s.title}';
 
-  Future<void> loadContent({bool forceRefresh = false}) async {
+  // Charge d'abord le cache local (instantané), puis sync en arrière-plan
+  Future<void> loadContent({bool forceRefresh = false, bool backgroundSync = true}) async {
+    // 1. Charger préférences locales
+    await _loadFavorites();
+    await _loadFontSize();
+
+    // 2. Si pas forceRefresh, essayer cache d'abord
+    if (!forceRefresh) {
+      final cached = await OfflineCacheService.loadCachedSongs();
+      if (cached.isNotEmpty) {
+        _items = cached;
+        _applyFilters();
+        _isLoading = false;
+        _error = null;
+        notifyListeners();
+
+        // Charger métadonnées cache
+        _lastSync = await OfflineCacheService.getLastSyncDate();
+        _cacheSizeBytes = await OfflineCacheService.getCacheSize();
+
+        // Puis sync en arrière-plan si activé
+        if (backgroundSync) {
+          final autoSync = await OfflineCacheService.isAutoSyncEnabled();
+          if (autoSync) {
+            // lance sans bloquer l'UI
+            _backgroundSync();
+            return;
+          }
+        }
+        return;
+      }
+    }
+
+    // 3. Sinon chargement réseau bloquant (1er lancement ou force)
     _isLoading = true;
     _error = null;
     notifyListeners();
 
     try {
-      // charge favoris locaux d'abord
-      await _loadFavorites();
-      await _loadFontSize();
-
       _items = await githubService.fetchSongs();
       _applyFilters();
       _error = null;
+      _isOffline = false;
 
-      // sauvegarde cache local
-      final prefs = await SharedPreferences.getInstance();
-      await prefs.setString('last_sync', DateTime.now().toIso8601String());
-      await prefs.setInt('songs_count', _items.length);
+      // Sauvegarde cache
+      await OfflineCacheService.saveSongs(_items);
+      _lastSync = DateTime.now();
+      _cacheSizeBytes = await OfflineCacheService.getCacheSize();
     } catch (e) {
-      _error = e.toString();
-      _items = [];
-      _filteredItems = [];
+      // Échec réseau → fallback cache
+      final cached = await OfflineCacheService.loadCachedSongs();
+      if (cached.isNotEmpty) {
+        _items = cached;
+        _applyFilters();
+        _isOffline = true;
+        _error = null;
+      } else {
+        // Fallback ultime : bundle assets local
+        final bundled = await _loadBundledSongs();
+        if (bundled.isNotEmpty) {
+          _items = bundled;
+          _applyFilters();
+          _isOffline = true;
+          _error = null;
+          // sauvegarde le bundle en cache pour la prochaine fois
+          await OfflineCacheService.saveSongs(_items);
+        } else {
+          _error = e.toString();
+          _items = [];
+          _filteredItems = [];
+        }
+      }
     } finally {
       _isLoading = false;
       notifyListeners();
     }
   }
 
-  Future<void> syncCheck() async {
-    // Vérifie si le repo a été mis à jour
-    final lastCommit = await githubService.getLastCommitDate();
-    final prefs = await SharedPreferences.getInstance();
-    final lastSyncStr = prefs.getString('last_sync');
-    if (lastCommit != null && lastSyncStr != null) {
-      final lastSync = DateTime.tryParse(lastSyncStr);
-      if (lastSync != null && lastCommit.isAfter(lastSync)) {
-        // nouvelle version dispo
-        await loadContent(forceRefresh: true);
-        return;
+  // Sync en arrière-plan non bloquant
+  Future<void> _backgroundSync() async {
+    if (_isSyncing) return;
+    _isSyncing = true;
+    notifyListeners();
+    try {
+      final fresh = await githubService.fetchSongs();
+      if (fresh.isNotEmpty && fresh.length != _items.length) {
+        // données changées
+        _items = fresh;
+        _applyFilters();
+        await OfflineCacheService.saveSongs(_items);
+        _lastSync = DateTime.now();
+      } else {
+        // même si même nombre, on met à jour la date
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setString('last_sync', DateTime.now().toIso8601String());
+        _lastSync = DateTime.now();
       }
+      _isOffline = false;
+      _error = null;
+    } catch (_) {
+      _isOffline = true;
+      // garde cache actuel
+    } finally {
+      _isSyncing = false;
+      _cacheSizeBytes = await OfflineCacheService.getCacheSize();
+      notifyListeners();
     }
-    // sinon juste reload
-    await loadContent(forceRefresh: true);
   }
 
+  Future<void> syncCheck() async {
+    // Vérifie si le repo a été mis à jour
+    try {
+      final lastCommit = await githubService.getLastCommitDate();
+      final lastSync = await OfflineCacheService.getLastCommitDate();
+      if (lastCommit != null && lastSync != null && lastCommit.isAfter(lastSync)) {
+        await loadContent(forceRefresh: true, backgroundSync: false);
+        return;
+      }
+    } catch (_) {}
+    // sinon force reload
+    await loadContent(forceRefresh: true, backgroundSync: false);
+  }
+
+  // Téléchargement manuel hors-ligne
+  Future<bool> downloadForOffline() async {
+    _isSyncing = true;
+    notifyListeners();
+    try {
+      final fresh = await githubService.fetchSongs();
+      if (fresh.isNotEmpty) {
+        _items = fresh;
+        _applyFilters();
+        await OfflineCacheService.saveSongs(fresh);
+        _lastSync = DateTime.now();
+        _cacheSizeBytes = await OfflineCacheService.getCacheSize();
+        _isOffline = false;
+        notifyListeners();
+        return true;
+      }
+      return false;
+    } catch (e) {
+      return false;
+    } finally {
+      _isSyncing = false;
+      notifyListeners();
+    }
+  }
+
+  Future<void> clearOfflineCache() async {
+    await OfflineCacheService.clearCache();
+    _lastSync = null;
+    _cacheSizeBytes = 0;
+    notifyListeners();
+  }
+
+  // Recherche – améliorée
   void search(String query) {
-    _searchQuery = query;
+    _searchQuery = query.trim();
     _applyFilters();
     notifyListeners();
   }
@@ -125,18 +249,30 @@ class ContentProvider extends ChangeNotifier {
     }
 
     if (_selectedCategory != null && _selectedCategory!.isNotEmpty) {
-      result = result.where((item) => item.category == _selectedCategory).toList();
+      result = result.where((item) => item.category.toLowerCase() == _selectedCategory!.toLowerCase()).toList();
     }
 
     if (_searchQuery.isNotEmpty) {
       final q = _searchQuery.toLowerCase();
-      result = result.where((item) {
-        return item.title.toLowerCase().contains(q) ||
-            item.lyrics.toLowerCase().contains(q) ||
-            item.author.toLowerCase().contains(q) ||
-            item.category.toLowerCase().contains(q);
-      }).toList();
+      // recherche avancée : split mots
+      final terms = q.split(RegExp(r'\s+')).where((t) => t.length > 1).toList();
+      if (terms.isEmpty) {
+        // recherche simple
+        result = result.where((item) {
+          final haystack = '${item.title} ${item.lyrics} ${item.author} ${item.category}'.toLowerCase();
+          return haystack.contains(q);
+        }).toList();
+      } else {
+        // tous les termes doivent matcher
+        result = result.where((item) {
+          final haystack = '${item.title} ${item.lyrics} ${item.author} ${item.category}'.toLowerCase();
+          return terms.every((term) => haystack.contains(term));
+        }).toList();
+      }
     }
+
+    // tri : favoris d'abord si recherche active ? non, alphabétique
+    result.sort((a, b) => a.title.compareTo(b.title));
 
     _filteredItems = result;
   }
@@ -162,6 +298,9 @@ class ContentProvider extends ChangeNotifier {
     _favoriteIds
       ..clear()
       ..addAll(list);
+    // charge aussi lastSync
+    _lastSync = await OfflineCacheService.getLastSyncDate();
+    _cacheSizeBytes = await OfflineCacheService.getCacheSize();
   }
 
   Future<void> _saveFavorites() async {
@@ -191,5 +330,42 @@ class ContentProvider extends ChangeNotifier {
     } catch (_) {
       return null;
     }
+  }
+
+  // Charge le JSON embarqué dans assets/data/songs.json – 100% offline first run
+  Future<List<Song>> _loadBundledSongs() async {
+    try {
+      final jsonString = await rootBundle.loadString('assets/data/songs.json');
+      final data = jsonDecode(jsonString);
+      if (data is Map<String, dynamic>) {
+        // format { "songs": [...] }
+        for (var key in ['songs', 'items', 'data', 'chants']) {
+          if (data[key] is List) {
+            return (data[key] as List)
+                .map((e) => Song.fromJson(e as Map<String, dynamic>, sourceFile: 'bundled'))
+                .toList();
+          }
+        }
+      } else if (data is List) {
+        return data.map((e) => Song.fromJson(e as Map<String, dynamic>, sourceFile: 'bundled')).toList();
+      }
+    } catch (_) {}
+    return [];
+  }
+
+  // Stats
+  String get cacheSizeText {
+    if (_cacheSizeBytes < 1024) return '${_cacheSizeBytes} o';
+    if (_cacheSizeBytes < 1024 * 1024) return '${(_cacheSizeBytes / 1024).toStringAsFixed(1)} Ko';
+    return '${(_cacheSizeBytes / (1024 * 1024)).toStringAsFixed(2)} Mo';
+  }
+
+  String get lastSyncText {
+    if (_lastSync == null) return 'Jamais';
+    final diff = DateTime.now().difference(_lastSync!);
+    if (diff.inMinutes < 1) return 'À l\'instant';
+    if (diff.inMinutes < 60) return 'Il y a ${diff.inMinutes} min';
+    if (diff.inHours < 24) return 'Il y a ${diff.inHours} h';
+    return 'Il y a ${diff.inDays} j';
   }
 }

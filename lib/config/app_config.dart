@@ -44,7 +44,7 @@ class AppConfig {
 
   // Chorale Antsan'ny Fitia
   static const AppConfig current = AppConfig(
-    appName: "Antsa ny Fitia",
+    appName: "Chorale Antsan'ny Fitia",
     appTagline: "Paroisse Saint François d'Assise",
     github: GithubRepoConfig(
       owner: 'rindraleon',
