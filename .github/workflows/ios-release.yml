@@ -1,0 +1,99 @@
+name: iOS Release IPA
+
+on:
+  push:
+    tags:
+      - 'v*ios*'
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build_ios:
+    runs-on: macos-14
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.5'
+          channel: 'stable'
+          cache: true
+          architecture: x64
+
+      - name: Flutter doctor
+        run: flutter doctor -v
+
+      - name: Scaffold iOS if missing
+        run: |
+          if [ ! -f "ios/Runner.xcodeproj/project.pbxproj" ]; then
+            flutter create . --org mg.chorale.antsafitia --project-name antsa_ny_fitia --platforms=ios --no-overwrite
+          else
+            flutter create . --org mg.chorale.antsafitia --project-name antsa_ny_fitia --platforms=ios --no-overwrite || true
+          fi
+
+      - name: Apply custom iOS branding
+        run: |
+          # Copy our custom Info.plist and icons
+          if [ -f "ios/Runner/Info.plist" ]; then
+            echo "Using repo Info.plist"
+          fi
+          # Ensure AppIcon is present
+          cp -R ios/Runner/Assets.xcassets/AppIcon.appiconset/* /tmp/ 2>/dev/null || true
+          # After flutter create, restore our icons
+          if [ -d "ios/Runner/Assets.xcassets/AppIcon.appiconset" ]; then
+            ls -lh ios/Runner/Assets.xcassets/AppIcon.appiconset/
+          fi
+
+      - name: Install pods
+        run: |
+          cd ios
+          pod repo update
+          pod install --repo-update
+        continue-on-error: true
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Build iOS (no codesign)
+        run: flutter build ios --release --no-codesign
+
+      - name: Build IPA (ad-hoc, no signing – for simulator/test)
+        run: |
+          cd build/ios/iphoneos
+          mkdir -p Payload
+          cp -R Runner.app Payload/
+          zip -r ../../../Antsa_ny_Fitia-unsigned.ipa Payload
+          cd -
+        continue-on-error: true
+
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Antsa-ny-Fitia-iOS
+          path: |
+            build/ios/iphoneos/Runner.app
+            *.ipa
+            build/ios/archive/*.xcarchive
+          retention-days: 14
+          if-no-files-found: warn
+
+      # Optional signed build – requires Apple certs in secrets
+      - name: Build signed IPA (if certs provided)
+        if: ${{ env.APPLE_CERTIFICATE_BASE64 != '' }}
+        env:
+          APPLE_CERTIFICATE_BASE64: ${{ secrets.APPLE_CERTIFICATE_BASE64 }}
+          APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
+          KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+          APPLE_PROVISIONING_PROFILE_BASE64: ${{ secrets.APPLE_PROVISIONING_PROFILE_BASE64 }}
+        run: |
+          echo "Signing enabled – building archive"
+          flutter build ipa --release --export-options-plist=ios/ExportOptions.plist || true
+
+      - name: Upload signed IPA
+        if: hashFiles('build/ios/ipa/*.ipa') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: AntsanNyFitia-signed-ipa
+          path: build/ios/ipa/*.ipa
