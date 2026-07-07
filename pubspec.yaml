@@ -19,9 +19,10 @@ dependencies:
   url_launcher: ^6.2.6
   shimmer: ^3.0.0
   google_fonts: ^6.2.1
-  share_plus: ^9.0.0
-  pdf: ^3.11.1
-  printing: ^5.13.3
+  # Partage & PDF – versions compatibles Dart 3.3 – 3.5
+  share_plus: ^10.1.2
+  pdf: ^3.10.8
+  printing: ^5.12.0
   path_provider: ^2.1.4
 
 dev_dependencies:
