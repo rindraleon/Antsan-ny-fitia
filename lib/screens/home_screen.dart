@@ -122,6 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     // Search - FIXE
+                    const SizedBox(height: 14),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: TextField(
@@ -146,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 14),
+                    const SizedBox(height: 16),
                     // Categories - FIXES
                     if (provider.categories.isNotEmpty)
                       SizedBox(
@@ -177,8 +178,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                       ),
-                    const SizedBox(height: 16),
-                    // Info banner - FIXE
                     
                     const SizedBox(height: 16),
                     // Title + fav button - FIXE
