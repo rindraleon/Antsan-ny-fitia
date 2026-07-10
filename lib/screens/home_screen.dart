@@ -81,52 +81,50 @@ class _HomeScreenState extends State<HomeScreen> {
           Expanded(
             child: Consumer<ContentProvider>(
               builder: (context, provider, _) {
-                return RefreshIndicator(
-                  onRefresh: () => provider.syncCheck(),
-                  color: primary,
-                  child: ListView(
-                    padding: const EdgeInsets.fromLTRB(16, 12, 16, 100),
-                    children: [
-                      // Offline banner
-                      if (provider.isOffline)
-                        Container(
-                          margin: const EdgeInsets.only(bottom: 12),
-                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-                          decoration: BoxDecoration(
-                            color: Colors.orange.shade50,
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(color: Colors.orange.shade200),
-                          ),
-                          child: Row(
-                            children: [
-                              Icon(Icons.wifi_off, size: 18, color: Colors.orange.shade700),
-                              const SizedBox(width: 8),
-                              const Expanded(child: Text('Mode hors-ligne – données en cache', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500))),
-                              TextButton(
-                                onPressed: () => provider.syncCheck(),
-                                child: const Text('Réessayer', style: TextStyle(fontSize: 12)),
-                              ),
-                            ],
-                          ),
+                return Column(
+                  children: [
+                    // Offline banner
+                    if (provider.isOffline)
+                      Container(
+                        margin: const EdgeInsets.only(bottom: 12),
+                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                        decoration: BoxDecoration(
+                          color: Colors.orange.shade50,
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: Colors.orange.shade200),
                         ),
-                      if (provider.isSyncing)
-                        Container(
-                          margin: const EdgeInsets.only(bottom: 12),
-                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                          decoration: BoxDecoration(
-                            color: theme.colorScheme.primaryContainer.withOpacity(0.5),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Row(
-                            children: [
-                              SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: primary)),
-                              const SizedBox(width: 10),
-                              const Text('Synchronisation GitHub…', style: TextStyle(fontSize: 13)),
-                            ],
-                          ),
+                        child: Row(
+                          children: [
+                            Icon(Icons.wifi_off, size: 18, color: Colors.orange.shade700),
+                            const SizedBox(width: 8),
+                            const Expanded(child: Text('Mode hors-ligne – données en cache', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500))),
+                            TextButton(
+                              onPressed: () => provider.syncCheck(),
+                              child: const Text('Réessayer', style: TextStyle(fontSize: 12)),
+                            ),
+                          ],
                         ),
-                      // Search
-                      TextField(
+                      ),
+                    if (provider.isSyncing)
+                      Container(
+                        margin: const EdgeInsets.only(bottom: 12),
+                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                        decoration: BoxDecoration(
+                          color: theme.colorScheme.primaryContainer.withOpacity(0.5),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Row(
+                          children: [
+                            SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: primary)),
+                            const SizedBox(width: 10),
+                            const Text('Synchronisation GitHub…', style: TextStyle(fontSize: 13)),
+                          ],
+                        ),
+                      ),
+                    // Search - FIXE
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: TextField(
                         controller: _searchController,
                         onChanged: (v) {
                           provider.search(v);
@@ -147,42 +145,46 @@ class _HomeScreenState extends State<HomeScreen> {
                               : null,
                         ),
                       ),
-                      const SizedBox(height: 14),
-                      // Categories
-                      if (provider.categories.isNotEmpty)
-                        SizedBox(
-                          height: 44,
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            children: [
-                              Padding(
+                    ),
+                    const SizedBox(height: 14),
+                    // Categories - FIXES
+                    if (provider.categories.isNotEmpty)
+                      SizedBox(
+                        height: 44,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(right: 8),
+                              child: FilterChip(
+                                label: const Text('Tout'),
+                                selected: provider.selectedCategory == null,
+                                onSelected: (_) => provider.filterByCategory(null),
+                              ),
+                            ),
+                            ...provider.categories.map((cat) {
+                              final selected = provider.selectedCategory == cat;
+                              return Padding(
                                 padding: const EdgeInsets.only(right: 8),
                                 child: FilterChip(
-                                  label: const Text('Tout'),
-                                  selected: provider.selectedCategory == null,
-                                  onSelected: (_) => provider.filterByCategory(null),
+                                  label: Text(cat),
+                                  selected: selected,
+                                  onSelected: (_) => provider.filterByCategory(selected ? null : cat),
                                 ),
-                              ),
-                              ...provider.categories.map((cat) {
-                                final selected = provider.selectedCategory == cat;
-                                return Padding(
-                                  padding: const EdgeInsets.only(right: 8),
-                                  child: FilterChip(
-                                    label: Text(cat),
-                                    selected: selected,
-                                    onSelected: (_) => provider.filterByCategory(selected ? null : cat),
-                                  ),
-                                );
-                              }),
-                            ],
-                          ),
+                              );
+                            }),
+                          ],
                         ),
-                      const SizedBox(height: 16),
-                      // Info banner
-                      
-                      const SizedBox(height: 16),
-                      // Title + fav button
-                      Row(
+                      ),
+                    const SizedBox(height: 16),
+                    // Info banner - FIXE
+                    
+                    const SizedBox(height: 16),
+                    // Title + fav button - FIXE
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Expanded(
@@ -208,51 +210,65 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 12),
-                      // List
-                      if (provider.isLoading)
-                        Center(child: Padding(
-                          padding: const EdgeInsets.all(40),
-                          child: CircularProgressIndicator(color: primary),
-                        ))
-                      else if (provider.error != null)
-                        _ErrorCard(error: provider.error!, onRetry: () => provider.loadContent())
-                      else if (provider.items.isEmpty)
-                        Padding(
-                          padding: const EdgeInsets.all(40),
-                          child: Center(
-                            child: Column(
-                              children: [
-                                Icon(Icons.search_off, size: 48, color: theme.hintColor),
-                                const SizedBox(height: 12),
-                                const Text('Aucun chant trouvé'),
-                                if (provider.searchQuery.isNotEmpty || provider.selectedCategory != null)
-                                  TextButton(
-                                    onPressed: provider.clearFilters,
-                                    child: const Text('Effacer les filtres'),
+                    ),
+                    const SizedBox(height: 12),
+                    // List - DÉFILANTE
+                    Expanded(
+                      child: RefreshIndicator(
+                        onRefresh: () => provider.syncCheck(),
+                        color: primary,
+                        child: provider.isLoading
+                            ? Center(child: Padding(
+                                padding: const EdgeInsets.all(40),
+                                child: CircularProgressIndicator(color: primary),
+                              ))
+                        : provider.error != null
+                            ? _ErrorCard(error: provider.error!, onRetry: () => provider.loadContent())
+                        : provider.items.isEmpty
+                            ? Center(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(40),
+                                  child: Column(
+                                    children: [
+                                      Icon(Icons.search_off, size: 48, color: theme.hintColor),
+                                      const SizedBox(height: 12),
+                                      const Text('Aucun chant trouvé'),
+                                      if (provider.searchQuery.isNotEmpty || provider.selectedCategory != null)
+                                        TextButton(
+                                          onPressed: provider.clearFilters,
+                                          child: const Text('Effacer les filtres'),
+                                        ),
+                                    ],
                                   ),
-                              ],
-                            ),
+                                ),
+                              )
+                        : ListView.builder(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            itemCount: provider.items.length,
+                            itemBuilder: (context, index) {
+                              final song = provider.items[index];
+                              return SongCard(
+                                song: song,
+                                onTap: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (_) => DetailScreen(song: song)),
+                                ),
+                              );
+                            },
                           ),
-                        )
-                      else
-                        ...provider.items.map((song) => SongCard(
-                              song: song,
-                              onTap: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (_) => DetailScreen(song: song)),
-                              ),
-                            )),
-                      const SizedBox(height: 20),
-                      // Debug info
-                      Center(
+                      ),
+                    ),
+                    // Debug info
+                    Container(
+                      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                      child: Center(
                         child: Text(
                           '${provider.totalCount} chants ',
                           style: TextStyle(fontSize: 11, color: theme.hintColor),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 );
               },
             ),
@@ -492,7 +508,7 @@ class _SettingsSheetState extends State<_SettingsSheet> {
                     ),
                   ),
                   Text(
-                    'Salamo 26,7',
+                    '__Salamo 26,7__',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
