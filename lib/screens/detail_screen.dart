@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import '../models/song.dart';
 import '../providers/content_provider.dart';
 import '../services/export_service.dart';
-import '../main.dart';
+import '../config/theme.dart';
 
 class DetailScreen extends StatefulWidget {
   final Song song;

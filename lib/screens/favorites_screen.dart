@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import '../providers/content_provider.dart';
 import '../widgets/song_card.dart';
 import 'detail_screen.dart';
-import '../main.dart';
+import '../config/theme.dart';
 
 class FavoritesScreen extends StatelessWidget {
   const FavoritesScreen({super.key});

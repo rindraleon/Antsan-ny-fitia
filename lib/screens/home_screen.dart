@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/content_provider.dart';
 import '../config/app_config.dart';
+import '../config/theme.dart';
 import '../widgets/song_card.dart';
 import 'detail_screen.dart';
 import 'favorites_screen.dart';
-import '../main.dart';
 import '../services/export_service.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -177,6 +177,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                         ),
+                      const SizedBox(height: 16),
+                      // Info banner
+                      
                       const SizedBox(height: 16),
                       // Title + fav button
                       Row(
@@ -458,7 +461,7 @@ class _SettingsSheetState extends State<_SettingsSheet> {
               ],
             ),
             const SizedBox(height: 12),
-            // --- OFFLINE CARD ---
+            
             Container(
               padding: const EdgeInsets.all(14),
               decoration: BoxDecoration(
@@ -467,66 +470,67 @@ class _SettingsSheetState extends State<_SettingsSheet> {
                 border: Border.all(color: provider.isOffline ? Colors.orange.shade200 : Colors.green.shade200),
               ),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Row(children: [
-                    Icon(provider.isOffline ? Icons.cloud_off : Icons.cloud_done,
-                      color: provider.isOffline ? Colors.orange.shade700 : Colors.green.shade700, size: 20),
-                    const SizedBox(width: 8),
-                    Text(provider.isOffline ? 'Mode hors-ligne' : 'Connecté – cache actif',
-                      style: TextStyle(fontWeight: FontWeight.w700,
-                        color: provider.isOffline ? Colors.orange.shade800 : Colors.green.shade800)),
-                  ]),
+                  Text(
+                    'Chorale Antsan\'ny Fitia Tsararivotra',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w800,
+                      fontSize: 16,
+                      color: provider.isOffline ? Colors.orange.shade900 : Colors.green.shade900,
+                    ),
+                  ),
                   const SizedBox(height: 8),
-                  Text('Chants en cache: ${provider.totalCount}', style: const TextStyle(fontSize: 13)),
-                  Text('Taille: ${provider.cacheSizeText}', style: const TextStyle(fontSize: 13)),
-                  Text('Dernière sync: ${provider.lastSyncText}', style: const TextStyle(fontSize: 13)),
-                  const SizedBox(height: 10),
-                  Wrap(spacing: 8, children: [
-                    FilledButton.icon(
-                      onPressed: provider.isSyncing ? null : () async {
-                        final ok = await provider.downloadForOffline();
-                        if (context.mounted) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text(ok ? 'Téléchargement terminé ✓ ${provider.totalCount} chants' : 'Échec – hors ligne ?')),
-                          );
-                          setState(() {});
-                        }
-                      },
-                      icon: const Icon(Icons.download, size: 18),
-                      label: const Text('Télécharger'),
+                  Text(
+                    '"Mba handefa feo fiderana, ary hitantara ny asanao mahagaga rehetra."',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontStyle: FontStyle.italic,
+                      fontSize: 13,
+                      color: provider.isOffline ? Colors.orange.shade800 : Colors.green.shade800,
                     ),
-                    OutlinedButton.icon(
-                      onPressed: () async {
-                        await provider.clearOfflineCache();
-                        if (context.mounted) {
-                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Cache vidé')));
-                          setState(() {});
-                        }
-                      },
-                      icon: const Icon(Icons.delete_outline, size: 18),
-                      label: const Text('Vider'),
+                  ),
+                  Text(
+                    'Salamo 26,7',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 12,
+                      color: provider.isOffline ? Colors.orange.shade700 : Colors.green.shade700,
                     ),
-                  ]),
+                  ),
                 ],
               ),
             ),
             const SizedBox(height: 16),
             const Text('Thème', style: TextStyle(fontWeight: FontWeight.w600)),
             const SizedBox(height: 8),
-            Wrap(
-              spacing: 8, runSpacing: 8,
-              children: AppThemeType.values.map((t) {
-                final td = AppThemeData.all[t]!;
-                final selected = themeProvider.themeType == t;
-                return ChoiceChip(
-                  avatar: CircleAvatar(backgroundColor: td.primary, radius: 10),
-                  label: Text(td.name, style: TextStyle(fontSize: 12, color: selected ? Colors.white : null)),
-                  selected: selected,
-                  selectedColor: td.primary,
-                  onSelected: (_) => themeProvider.setTheme(t),
-                );
-              }).toList(),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: AppThemeType.values.map((t) {
+                  final td = AppThemeData.all[t]!;
+                  final selected = themeProvider.themeType == t;
+                  return Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      CircleAvatar(backgroundColor: td.primary, radius: 10),
+                      const SizedBox(width: 6),
+                      Checkbox(
+                        value: selected,
+                        onChanged: (_) => themeProvider.setTheme(t),
+                        fillColor: WidgetStateProperty.all(td.primary),
+                      ),
+                      if (selected) ...[
+                        const SizedBox(width: 4),
+                        Text(td.name, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
+                      ],
+                      const SizedBox(width: 12),
+                    ],
+                  );
+                }).toList(),
+              ),
             ),
             const Divider(height: 28),
             ListTile(
@@ -604,6 +608,7 @@ class _SettingsSheetState extends State<_SettingsSheet> {
             ),
             const SizedBox(height: 8),
             Container(
+              width: double.infinity,
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.surface.withOpacity(0.5),
@@ -613,14 +618,8 @@ class _SettingsSheetState extends State<_SettingsSheet> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text('Developpé par Rindra Leon', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13)),
+                  const Text('Copyright by Rindra Léon 2026', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13), textAlign: TextAlign.center),
                   const SizedBox(height: 4),
-                  // const SelectableText('github.com/rindraleon/Antsan-ny-fitia', style: TextStyle(fontSize: 12)),
-                  // const SizedBox(height: 6),
-                  // Text(
-                  //   '• Cache double: SharedPreferences + fichier\n• Chargement instantané hors-ligne\n• Sync arrière-plan auto\n• ${provider.totalCount} chants • ${AppThemeType.values.length} thèmes\n• Recherche full-text • Favoris • PDF • Auto-scroll',
-                  //   style: TextStyle(fontSize: 11, color: Theme.of(context).hintColor),
-                  // ),
                 ],
               ),
             ),
