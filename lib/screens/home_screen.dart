@@ -147,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 14),
                     // Categories - FIXES
                     if (provider.categories.isNotEmpty)
                       SizedBox(
@@ -178,8 +178,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                       ),
-                    
-                    const SizedBox(height: 16),
+                    ),
+                    const SizedBox(height: 14),
                     // Title + fav button - FIXE
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
