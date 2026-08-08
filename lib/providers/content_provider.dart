@@ -23,7 +23,7 @@ class ContentProvider extends ChangeNotifier {
 
   // Favoris
   final Set<String> _favoriteIds = {};
-  double _fontSize = 18.0;
+  double _fontSize = 12.0;
 
   // Stats offline
   DateTime? _lastSync;
@@ -329,18 +329,18 @@ class ContentProvider extends ChangeNotifier {
   // Font size
   Future<void> _loadFontSize() async {
     final prefs = await SharedPreferences.getInstance();
-    _fontSize = prefs.getDouble('font_size') ?? 18.0;
+    _fontSize = prefs.getDouble('font_size') ?? 12.0;
   }
 
   Future<void> setFontSize(double size) async {
-    _fontSize = size.clamp(14.0, 30.0);
+    _fontSize = size.clamp(12.0, 30.0);
     final prefs = await SharedPreferences.getInstance();
     await prefs.setDouble('font_size', _fontSize);
     notifyListeners();
   }
 
   void increaseFont() => setFontSize(_fontSize + 2);
-  void decreaseFont() => setFontSize((_fontSize - 2).clamp(14.0, 30.0));
+  void decreaseFont() => setFontSize((_fontSize - 2).clamp(12.0, 30.0));
 
   Song? getById(int id) {
     try {
