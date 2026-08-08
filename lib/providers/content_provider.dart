@@ -4,12 +4,19 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/song.dart';
 import '../services/github_service.dart';
-import '../services/offline_cache_service.dart';
+import '../services/sync_service.dart';
+import '../services/connectivity_service.dart';
 
 class ContentProvider extends ChangeNotifier {
   final GithubService githubService;
+  final SyncService syncService;
+  final ConnectivityService connectivityService;
 
-  ContentProvider({required this.githubService});
+  ContentProvider({
+    required this.githubService,
+    required this.syncService,
+    required this.connectivityService,
+  });
 
   List<Song> _items = [];
   List<Song> _filteredItems = [];
@@ -82,61 +89,28 @@ class ContentProvider extends ChangeNotifier {
       }
     }
 
-    // 3. Si forceRefresh ou bundle vide, essayer le cache
-    final cached = await OfflineCacheService.loadCachedSongs();
-    if (cached.isNotEmpty && !forceRefresh) {
-      _items = cached;
-      _applyFilters();
-      _isLoading = false;
-      _error = null;
-      _isOffline = true;
-      notifyListeners();
-
-      // Charger métadonnées cache
-      _lastSync = await OfflineCacheService.getLastSyncDate();
-      _cacheSizeBytes = await OfflineCacheService.getCacheSize();
-
-      // Puis sync en arrière-plan si activé
-      if (backgroundSync) {
-        final autoSync = await OfflineCacheService.isAutoSyncEnabled();
-        if (autoSync) {
-          _backgroundSync();
-          return;
-        }
-      }
-      return;
-    }
-
-    // 4. Sinon chargement réseau bloquant (1er lancement ou force refresh)
+    // 3. Si forceRefresh ou bundle vide, utiliser le nouveau service de synchronisation
     _isLoading = true;
     _error = null;
     notifyListeners();
 
     try {
-      _items = await githubService.fetchSongs();
+      // Utiliser le nouveau service de sync Offline-First
+      _items = await syncService.syncSongs(forceRefresh: forceRefresh);
       _applyFilters();
       _error = null;
-      _isOffline = false;
-
-      // Sauvegarde cache
-      await OfflineCacheService.saveSongs(_items);
-      _lastSync = DateTime.now();
-      _cacheSizeBytes = await OfflineCacheService.getCacheSize();
+      
+      // Mettre à jour les métadonnées
+      _lastSync = await syncService.getLastSyncDate();
+      _cacheSizeBytes = await syncService.getCacheSize();
+      
+      // Mettre à jour le statut offline
+      _isOffline = connectivityService.syncStatus == SyncStatus.offline;
+      
     } catch (e) {
-      // Échec réseau → utiliser le bundle local
-      final bundled = await _loadBundledSongs();
-      if (bundled.isNotEmpty) {
-        _items = bundled;
-        _applyFilters();
-        _isOffline = true;
-        _error = null;
-        // sauvegarde le bundle en cache pour la prochaine fois
-        await OfflineCacheService.saveSongs(_items);
-      } else {
-        _error = 'Impossible de charger les chants. Vérifiez votre connexion internet.';
-        _items = [];
-        _filteredItems = [];
-      }
+      _error = 'Impossible de charger les chants. Vérifiez votre connexion internet.';
+      _items = [];
+      _filteredItems = [];
     } finally {
       _isLoading = false;
       notifyListeners();
@@ -148,34 +122,36 @@ class ContentProvider extends ChangeNotifier {
     if (_isSyncing) return;
     _isSyncing = true;
     notifyListeners();
+    
     try {
-      final fresh = await githubService.fetchSongs();
+      // Utiliser le nouveau service de synchronisation
+      final fresh = await syncService.syncSongs(forceRefresh: true);
+      
       if (fresh.isNotEmpty) {
-        // Vérifier si les données ont changé en comparant les hash
+        // Vérifier si les données ont changé
         final newJson = jsonEncode(fresh.map((s) => s.toJson()).toList());
-        final hasChanged = await OfflineCacheService.hasDataChanged(newJson);
+        final hasChanged = await syncService.hasDataChanged(newJson);
         
         if (hasChanged || fresh.length != _items.length) {
-          // données changées - remplacer les données locales
+          // Données changées - remplacer les données locales
           _items = fresh;
           _applyFilters();
-          await OfflineCacheService.saveSongs(_items);
-          _lastSync = DateTime.now();
+          _lastSync = await syncService.getLastSyncDate();
+          _cacheSizeBytes = await syncService.getCacheSize();
         } else {
-          // mêmes données, juste mettre à jour la date de sync
-          final prefs = await SharedPreferences.getInstance();
-          await prefs.setString('last_sync', DateTime.now().toIso8601String());
+          // Mêmes données, juste mettre à jour la date de sync
           _lastSync = DateTime.now();
         }
       }
-      _isOffline = false;
+      
+      _isOffline = connectivityService.syncStatus == SyncStatus.offline;
       _error = null;
-    } catch (_) {
+    } catch (e) {
       _isOffline = true;
-      // garde cache actuel
+      // Garder le cache actuel - ne pas remplacer
+      _error = null;
     } finally {
       _isSyncing = false;
-      _cacheSizeBytes = await OfflineCacheService.getCacheSize();
       notifyListeners();
     }
   }
@@ -184,7 +160,7 @@ class ContentProvider extends ChangeNotifier {
     // Vérifie si le repo a été mis à jour
     try {
       final lastCommit = await githubService.getLastCommitDate();
-      final lastSync = await OfflineCacheService.getLastSyncDate();
+      final lastSync = await syncService.getLastSyncDate();
       if (lastCommit != null && lastSync != null && lastCommit.isAfter(lastSync)) {
         await loadContent(forceRefresh: true, backgroundSync: false);
         return;
@@ -203,10 +179,11 @@ class ContentProvider extends ChangeNotifier {
       if (fresh.isNotEmpty) {
         _items = fresh;
         _applyFilters();
-        await OfflineCacheService.saveSongs(fresh);
+        await syncService.saveSongsAtomically(fresh, jsonEncode(fresh.map((s) => s.toJson()).toList()));
         _lastSync = DateTime.now();
-        _cacheSizeBytes = await OfflineCacheService.getCacheSize();
+        _cacheSizeBytes = await syncService.getCacheSize();
         _isOffline = false;
+        connectivityService.markSynced();
         notifyListeners();
         return true;
       }
@@ -220,9 +197,10 @@ class ContentProvider extends ChangeNotifier {
   }
 
   Future<void> clearOfflineCache() async {
-    await OfflineCacheService.clearCache();
+    await syncService.clearCache();
     _lastSync = null;
     _cacheSizeBytes = 0;
+    connectivityService.setSyncStatus(SyncStatus.offline);
     notifyListeners();
   }
 
@@ -317,8 +295,8 @@ class ContentProvider extends ChangeNotifier {
       ..clear()
       ..addAll(list);
     // charge aussi lastSync
-    _lastSync = await OfflineCacheService.getLastSyncDate();
-    _cacheSizeBytes = await OfflineCacheService.getCacheSize();
+    _lastSync = await syncService.getLastSyncDate();
+    _cacheSizeBytes = await syncService.getCacheSize();
   }
 
   Future<void> _saveFavorites() async {

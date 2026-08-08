@@ -147,15 +147,3 @@ class OfflineCacheService {
     return oldHash != newHash;
   }
 }
-
-// Service de connectivité simplifié
-class ConnectivityService {
-  static Future<bool> get isOnline async {
-    try {
-      // test simple – on utilisera connectivity_plus dans l'app
-      return true;
-    } catch (_) {
-      return false;
-    }
-  }
-}
