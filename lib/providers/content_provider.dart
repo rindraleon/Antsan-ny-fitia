@@ -150,17 +150,23 @@ class ContentProvider extends ChangeNotifier {
     notifyListeners();
     try {
       final fresh = await githubService.fetchSongs();
-      if (fresh.isNotEmpty && fresh.length != _items.length) {
-        // données changées
-        _items = fresh;
-        _applyFilters();
-        await OfflineCacheService.saveSongs(_items);
-        _lastSync = DateTime.now();
-      } else {
-        // même si même nombre, on met à jour la date
-        final prefs = await SharedPreferences.getInstance();
-        await prefs.setString('last_sync', DateTime.now().toIso8601String());
-        _lastSync = DateTime.now();
+      if (fresh.isNotEmpty) {
+        // Vérifier si les données ont changé en comparant les hash
+        final newJson = jsonEncode(fresh.map((s) => s.toJson()).toList());
+        final hasChanged = await OfflineCacheService.hasDataChanged(newJson);
+        
+        if (hasChanged || fresh.length != _items.length) {
+          // données changées - remplacer les données locales
+          _items = fresh;
+          _applyFilters();
+          await OfflineCacheService.saveSongs(_items);
+          _lastSync = DateTime.now();
+        } else {
+          // mêmes données, juste mettre à jour la date de sync
+          final prefs = await SharedPreferences.getInstance();
+          await prefs.setString('last_sync', DateTime.now().toIso8601String());
+          _lastSync = DateTime.now();
+        }
       }
       _isOffline = false;
       _error = null;
@@ -369,7 +375,7 @@ class ContentProvider extends ChangeNotifier {
   String get cacheSizeText {
     if (_cacheSizeBytes < 1024) return '${_cacheSizeBytes} o';
     if (_cacheSizeBytes < 1024 * 1024) return '${(_cacheSizeBytes / 1024).toStringAsFixed(1)} Ko';
-    return '${(_cacheSizeBytes / (1024 * 1024)).toStringAsFixed(2)} Mo';
+    return '${(_cacheSizeBytes / 1024 / 1024).toStringAsFixed(2)} Mo';
   }
 
   String get lastSyncText {
